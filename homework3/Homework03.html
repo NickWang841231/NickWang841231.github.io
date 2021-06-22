@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
+    <title>SHOPLINE_作業03</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+        .header_tool {
+            width: 100%;
+            background-color:rgb(0, 20, 45);
+            display: flex;
+            padding: 0 30px;
+            align-items: center;
+            box-sizing: border-box;
+        }
+        .header_tool .tool ul{
+            display: flex;
+            margin-left: 1500px;
+        }
+        .header_tool .tool li{
+            padding: 5px 20px 5px 0;
+            color: white;
+        }
+        .header_tool .tool a{
+            color: white;
+            text-decoration: none;
+        }
+        .header_tool .tool a:hover{
+            color:rgb(25, 93, 182) ;
+        }
+        .header_about{
+            width: 100%;
+            background-color: #fff;
+            border: 1px solid rgb(172, 174, 179);
+            display: flex;
+            padding: 0 30px;
+            align-items: center;
+            box-sizing: border-box;
+            position:fixed;
+        }
+        .header_about .logo img{
+            width: 165px;
+            margin:30px 50px 30px 150px;
+        }
+        .header_about .navigation ul{
+            display: flex;
+        }
+        .header_about .navigation li{
+            font-size: 15px;
+        }
+        .header_about .navigation a{
+            text-decoration: none;
+            color: black;
+            padding: 20px;
+        }
+        .header_about .navigation a:hover{
+            color: blue;
+        }
+        .header_about .navigation :nth-of-type(8){
+            background-color:rgb(0, 97, 255);
+            border-radius: 50px;
+            font-size: 20px;
+            margin-left: 460px;
+        }
+        .header_about .navigation :nth-of-type(8) a:hover{
+            color: white;
+        }
+        .slide{
+            width: 100%;
+            margin: 100px 0 150px 0;
+            background-color: rgb(0, 12, 43);
+            display: flex;
+        }
+        .slide_text{
+            width: 50%;
+        }
+        .slide_text h1{
+            color: white;
+            font-size: 40px;
+            margin-left :200px;
+            padding: 150px 0 15px 0 ;
+        }
+        .slide_text h2{
+            color: green;
+            font-size: 40px;
+            padding-bottom: 20px;
+            margin-left :200px;
+        }
+        .slide_text p{
+            color: white;
+            font-size: 20px;
+            margin:0 20px 15px 200px;
+            padding-bottom: 20px;
+        }
+        .slide_text .input_email{
+            background-color: unset;
+            font-size: 20px;
+            padding-right: 50px;
+            border-width: 0 0 2px;
+            margin-left: 200px;
+            color: white;
+        }
+        .slide_text a{
+            text-decoration: none;
+            background-color: rgb(27, 88, 200);
+            color: white;
+            padding: 5px;
+            border-radius: 5px;
+            margin: 5px;
+        }
+        .slide_text a:hover{
+            background-color: rgb(0, 97, 255);
+            color: gray;
+        }
+        .slide_pic img{
+            display:inline;
+            width: 50%;
+            margin: 100px 0 40px 300px ;
+        }
+        .container{
+            width: 100%;
+        }
+        .container_about h1{
+            text-align: center;
+            font-size: 40px;
+            padding-bottom: 30px;
+        }
+        .container_about p{
+            text-align: center;
+            color: rgb(72, 84, 92);
+            line-height: 40px;
+        }
+        .container_item_group{
+            width: 100%;
+            margin-top: 150px;
+        }
+        .container_item_group .container_item{
+            width: 100%;
+            display: flex;
+        }
+        .container_item_group .container_item .container_item_text{
+            width: 50%;
+            margin-left: 200px;
+            border-bottom: 1px solid black;
+        }
+        .container_item_group .container_item .container_item_text h3{
+            font-size: 40px;
+        }
+        .container_item_group .container_item .container_item_text p{
+            margin-top: 50px;
+            margin-bottom: 30px;
+            line-height: 30px;
+            font-size: 20px;
+            color: gray;
+        }
+        .container_item_group .container_item .container_item_text ul{
+            display: flex;
+            flex-wrap: wrap;
+            margin-bottom: 25px;
+        }
+        .container_item_group .container_item .container_item_text li{
+            line-height: 30px;
+            padding-right: 25%  ;
+        }
+        .container_item_group .container_item .container_item_pic{
+            width: 50%;
+            margin-right: 200px;
+            border-bottom: 1px solid black;
+        }
+        .container_item_group .container_item .container_item_pic img{
+            width: 75%;
+            margin-left: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header_tool">
+        <nav class="tool">
+            <ul>
+                <li><a href=""><i class="fas fa-globe"></i></a></li>
+                <li> | </li>
+                <li><a href="">幫助中心</a></li>
+                <li><a href="">登入商店</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <div class="header_about">
+        <div class="logo">
+            <a href="#"><img src="logo.png" alt="shopline_logo"></a>
+        </div>
+        <nav class="navigation">
+            <ul>
+                <li><a href="#">開店服務</a></li>
+                <li><a href="#">方案費用</a></li>
+                <li><a href="#">客戶案例</a></li>
+                <li><a href="#">開店說明會</a></li>
+                <li><a href="#">開店諮詢</a></li>
+                <li><a href="#">更多解決方案</a></li>
+                <li><a href="#">其他資源</a></li>
+                <li><a href="#">免費試用</a></li>
+            </ul>
+        </nav>
+    </div>
+    
+    <div class="slide">
+        <div class="slide_text">
+            <h1>想在哪開店創業？</h1>
+            <h2>門市必備零售POS系統</h2>
+            <p>超過25萬品牌使用！從個人賣家到國際品牌，都能以 SHOPLINE 實現全通路零售，快速拓展市場到世界各地，輕鬆開始你的『 店 』商生意！</p>
+            <input class="input_email" type="email" placeholder="請在此輸入電子信箱" >
+            <a href="#">免費試用</a>
+        </div>
+        <div class="slide_pic">
+            <img src="pos.png" alt="POS系統">
+        </div>  
+    </div>
+
+    <div class="container">
+        <div class="container_about">
+            <h1>單一平台就能助你<br>在全通路輕鬆開店創業</h1>
+            <p>從網路商店架站到實體門市管理，只需要一個平台，就能輕鬆實現開店創業，<br>並能同步管理所有銷售管道，SHOPLINE 助你賣得更多、賣得更好！</p>
+        </div>
+        <div class="container_item_group">
+            <div class="container_item">
+                <div class="container_item_text">
+                    <h3>免寫程式、多款版型<br>輕鬆打造全能電商網站</h3>
+                    <p>不會寫程式也能輕鬆架設品牌電商官網！任何產業都能找到合適的專業設計版型，以滑鼠拖曳就能完成網頁編輯，讓架設網站就像堆積木一樣簡單。</p>
+                    <ul>
+                        <li><i class="far fa-check-circle">豐富版型主題與字型搭配</i></li>
+                        <li><i class="far fa-check-circle">RWD 響應式網頁設計</i></li>
+                        <li><i class="far fa-check-circle">獨有網址 ＆ SSL 安全憑證</i></li>
+                        <li><i class="far fa-check-circle">SEO 搜尋引擎優化</i></li>
+                        <li><i class="far fa-check-circle">一頁商店</i></li>
+                        <li><i class="far fa-check-circle">開放 HTML／CSS 編輯</i></li>
+                    </ul>
+                    <a href="#">看看開店密技</a>
+                </div>
+                <div class="container_item_pic">
+                    <img src="img1.png" alt="開店密技">
+                </div>
+            </div>
+            <div class="container_item">
+                <div class="container_item_text">
+                    <h3>免寫程式、多款版型<br>輕鬆打造全能電商網站</h3>
+                    <p>不會寫程式也能輕鬆架設品牌電商官網！任何產業都能找到合適的專業設計版型，以滑鼠拖曳就能完成網頁編輯，讓架設網站就像堆積木一樣簡單。</p>
+                    <ul>
+                        <li><i class="far fa-check-circle">豐富版型主題與字型搭配</i></li>
+                        <li><i class="far fa-check-circle">RWD 響應式網頁設計</i></li>
+                        <li><i class="far fa-check-circle">獨有網址 ＆ SSL 安全憑證</i></li>
+                        <li><i class="far fa-check-circle">SEO 搜尋引擎優化</i></li>
+                        <li><i class="far fa-check-circle">一頁商店</i></li>
+                        <li><i class="far fa-check-circle">開放 HTML／CSS 編輯</i></li>
+                    </ul>
+                    <a href="#">看看開店密技</a>
+                </div>
+                <div class="container_item_pic">
+                    <img src="img1.png" alt="開店密技">
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>
