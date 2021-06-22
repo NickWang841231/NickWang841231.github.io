@@ -65,6 +65,7 @@
         }
         .navigation a:hover{
             color: blue;
+            border-bottom: 2px solid blue;
         }
         .navigation :nth-of-type(8){
             background-color:rgb(0, 97, 255);
@@ -236,6 +237,25 @@
         }
         .conrainer_service_feature_text p{
             text-align: center;
+        }
+        .container_popularity{
+            width: 100%;
+            margin-top: 20px;
+            background-color: #fff;
+        }
+        .container_popularity_text{
+            text-align: center;
+            padding-top: 20px;
+        }
+        .container_popularity_pic{
+            margin-top: 30px;
+            margin-bottom: 30px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content:space-evenly;
+        }
+        .container_popularity_pic :hover{
+            background-color: #ccc;
         }
     </style>
 </head>
@@ -422,7 +442,16 @@
                 </div>
             </div>
             <div class="container_popularity">
-                <h1>人氣品牌一致推薦使用</h1>
+                <div class="container_popularity_text">
+                    <h1>人氣品牌一致推薦使用</h1>
+                </div>
+                <div class="container_popularity_pic">
+                    <img src="popularity1.png" alt="">
+                    <img src="popularity2.png" alt="">
+                    <img src="popularity3.png" alt="">
+                    <img src="popularity4.png" alt="">
+                    <img src="popularity5.png" alt="">
+                </div>
             </div>
         </div>
     </div>
