@@ -363,6 +363,9 @@
     margin-left: 10px;
     padding-right: 10px;
 }
+.copyrigth_link a:hover{
+    color: rgb(33, 117, 226);
+}
 .copyright_icon{
     width: 33.33%;
 }
