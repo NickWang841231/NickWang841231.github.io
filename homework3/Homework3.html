@@ -175,6 +175,7 @@
             color: gray;
         }
         .container_item_text ul{
+            width: 100%;
             display: flex;
             flex-wrap: wrap;
             margin-bottom: 25px;
@@ -213,33 +214,47 @@
         .container_service{
             width: 100%;
             background-color: rgb(244, 245, 247);
+            box-sizing: border-box;
         }
         .container_service_title{
+            width: 100%;
             text-align: center;
             padding: 50px 0 60px;
         }
+        .container_service_title h2{
+            font-size: 30px;
+        }
+        .container_service_item{
+            width: 100%;
+            margin: auto;
+            display: flex;
+            flex-wrap: wrap;
+        }
         .container_service_feature{
-            
+            box-sizing: border-box;
+            width: 33.333%;
+            padding: 0 50px;
         }
         .container_service_feature_pic{
-            margin: 10px 0 10px 900px;
+            width: 100%;
+            margin-bottom: 10px;
         }
         .container_service_feature_pic img{
             background-color: #fff;
             padding : 20px ;
             width: 50px;
-            border-radius: 50%;  
-        }
-        .conrainer_service_feature_text{
-            width: 33%;
-            margin: auto;
+            border-radius: 50%;
+            margin-left: 220px;
         }
         .conrainer_service_feature_text h3{
-            font-size: 125%;
             text-align: center;
+            line-height: 1.5;
         }
         .conrainer_service_feature_text p{
+            font-size: 14px;
+            line-height: 1.5;
             text-align: center;
+            margin: 2px 0 60px;
         }
         .container_popularity{
             width: 100%;
@@ -312,7 +327,6 @@
             color: rgb(66, 82, 104);
             text-decoration: none;
             font-size: 15px;
-            
         }
         .footer_nav  a:hover{
             color: white;
@@ -447,58 +461,60 @@
             <div class="container_service_title">
                 <h2>更多功能與服務</h2>
             </div>
-            <div class="container_service_feature">
-                <div class="container_service_feature_pic">
-                    <img src="smalllogo6.png" alt="訂單系統">
+            <div class="container_service_item">
+                <div class="container_service_feature">
+                    <div class="container_service_feature_pic">
+                        <img src="smalllogo6.png" alt="訂單系統">
+                    </div>
+                    <div class="conrainer_service_feature_text">
+                        <h3>強大庫存及訂單系統</h3>
+                        <p>從商品數量、貨況到訂單付款狀態、物流貨態一目瞭然，提升營運效率超有感</p>
+                    </div>
                 </div>
-                <div class="conrainer_service_feature_text">
-                    <h3>強大庫存及訂單系統</h3>
-                    <p>從商品數量、貨況到訂單付款狀態、物流貨態一目瞭然，提升營運效率超有感</p>
+                <div class="container_service_feature">
+                    <div class="container_service_feature_pic">
+                        <img src="smalllogo1.png" alt="業績分析">
+                    </div>
+                    <div class="conrainer_service_feature_text">
+                        <h3>即時化商店業績分析</h3>
+                        <p>圖表化報表助你一手掌握商店概況，讓數據助攻企業成長，營運策略更有方向。</p>
+                    </div>
                 </div>
-            </div>
-            <div class="container_service_feature">
-                <div class="container_service_feature_pic">
-                    <img src="smalllogo1.png" alt="業績分析">
+                <div class="container_service_feature">
+                    <div class="container_service_feature_pic">
+                        <img src="smalllogo2.png" alt="幣值切換">
+                    </div>
+                    <div class="conrainer_service_feature_text">
+                        <h3>多國語系、幣值切換</h3>
+                        <p>想做跨境電商也ＯＫ！提供語言、幣別、稅金等進階功能，友善應對海外消費需求。</p>
+                    </div>
                 </div>
-                <div class="conrainer_service_feature_text">
-                    <h3>即時化商店業績分析</h3>
-                    <p>圖表化報表助你一手掌握商店概況，讓數據助攻企業成長，營運策略更有方向。</p>
+                <div class="container_service_feature">
+                    <div class="container_service_feature_pic">
+                        <img src="smalllogo3.png" alt="線上支援">
+                    </div>
+                    <div class="conrainer_service_feature_text">
+                        <h3>專業顧問線上支援</h3>
+                        <p>迅速、透明的溝通管道，協助你快速解決從線上到線下、從在地到海外的網店疑難。</p>
+                    </div>
                 </div>
-            </div>
-            <div class="container_service_feature">
-                <div class="container_service_feature_pic">
-                    <img src="smalllogo2.png" alt="幣值切換">
+                <div class="container_service_feature">
+                    <div class="container_service_feature_pic">
+                        <img src="smalllogo4.png" alt="廣告行銷">
+                    </div>
+                    <div class="conrainer_service_feature_text">
+                        <h3>廣告行銷加值服務</h3>
+                        <p>由官方認證的專業投手團隊，協助品牌投遞 Facebook、Google、LINE 等廣告。</p>
+                    </div>
                 </div>
-                <div class="conrainer_service_feature_text">
-                    <h3>多國語系、幣值切換</h3>
-                    <p>想做跨境電商也ＯＫ！提供語言、幣別、稅金等進階功能，友善應對海外消費需求。</p>
-                </div>
-            </div>
-            <div class="container_service_feature">
-                <div class="container_service_feature_pic">
-                    <img src="smalllogo3.png" alt="線上支援">
-                </div>
-                <div class="conrainer_service_feature_text">
-                    <h3>專業顧問線上支援</h3>
-                    <p>迅速、透明的溝通管道，協助你快速解決從線上到線下、從在地到海外的網店疑難。</p>
-                </div>
-            </div>
-            <div class="container_service_feature">
-                <div class="container_service_feature_pic">
-                    <img src="smalllogo4.png" alt="廣告行銷">
-                </div>
-                <div class="conrainer_service_feature_text">
-                    <h3>廣告行銷加值服務</h3>
-                    <p>由官方認證的專業投手團隊，協助品牌投遞 Facebook、Google、LINE 等廣告。</p>
-                </div>
-            </div>
-            <div class="container_service_feature">
-                <div class="container_service_feature_pic">
-                    <img src="smalllogo5.png" alt="成長社群">
-                </div>
-                <div class="conrainer_service_feature_text">
-                    <h3>老闆專屬成長社群</h3>
-                    <p>致力為品牌店家打造能深度交流且互助的生態體系，是拓展人脈、商機的絕佳場域。</p>
+                <div class="container_service_feature">
+                    <div class="container_service_feature_pic">
+                        <img src="smalllogo5.png" alt="成長社群">
+                    </div>
+                    <div class="conrainer_service_feature_text">
+                        <h3>老闆專屬成長社群</h3>
+                        <p>致力為品牌店家打造能深度交流且互助的生態體系，是拓展人脈、商機的絕佳場域。</p>
+                    </div>
                 </div>
             </div>
             <div class="container_popularity">
@@ -594,6 +610,9 @@
                     </ul>
                 </div>
             </div>
+        </div>
+        <div class="copyright">
+
         </div>
     </div>
     
