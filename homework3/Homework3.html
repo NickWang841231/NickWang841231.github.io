@@ -79,20 +79,21 @@
         .slide{
             width: 100%;
             margin-bottom: 150px;
-            background-color: rgb(0, 12, 43);
+            background-image: url(backimg.png);
             display: flex;
+            padding: 150px 0;
         }
         .slide_text{
             width: 50%;
             margin-top: 75px;
         }
-        .slide_text h1{
+        .slide_text h2{
             color: white;
             font-size: 40px;
             margin-left :200px;
             padding: 150px 0 15px 0 ;
         }
-        .slide_text h2{
+        .slide_text h3{
             color: green;
             font-size: 40px;
             padding-bottom: 20px;
@@ -132,7 +133,7 @@
         .container{
             width: 100%;
         }
-        .container_about h1{
+        .container_about h2{
             text-align: center;
             font-size: 40px;
             padding-bottom: 30px;
@@ -215,23 +216,25 @@
         }
         .container_service_title{
             text-align: center;
-            padding: 50px 0 40px;
+            padding: 50px 0 60px;
         }
         .container_service_feature{
-            display: flex;
-            flex-direction: row; 
-            justify-content: center;
+            
+        }
+        .container_service_feature_pic{
+            margin: 10px 0 10px 900px;
         }
         .container_service_feature_pic img{
             background-color: #fff;
             padding : 20px ;
             width: 50px;
-            border-radius: 50%;
+            border-radius: 50%;  
         }
         .conrainer_service_feature_text{
             width: 33%;
+            margin: auto;
         }
-        .conrainer_service_feature_text h2{
+        .conrainer_service_feature_text h3{
             font-size: 125%;
             text-align: center;
         }
@@ -256,6 +259,31 @@
         }
         .container_popularity_pic :hover{
             background-color: #ccc;
+        }
+        .footer{
+            width: 100%;
+            background-color: rgb(23, 43, 77);
+        }
+        .footer_text{
+            color: white;
+            font-size: 40px;
+            font-family: 新細明體;
+            padding-top: 100px;
+            padding-left: 300px;
+        }
+        .footer_freedownload{
+            padding: 50px 0 100px 300px;
+        }
+        .footer_freedownload a{
+            color: white;
+            text-decoration: none;
+            background-color: rgb(7, 71, 166);
+            padding: 15px 100px 15px 100px ;
+            border-radius: 50px;
+            transition: padding .5s 0s ease,background-color 1s 1s;
+        }
+        .footer_freedownload a:hover{
+            padding: 15px 150px 15px 150px ;
         }
     </style>
 </head>
@@ -292,8 +320,8 @@
     
     <div class="slide">
         <div class="slide_text">
-            <h1>想在哪開店創業？</h1>
-            <h2>門市必備零售POS系統</h2>
+            <h2>想在哪開店創業？</h2>
+            <h3>門市必備零售POS系統</h3>
             <p>超過25萬品牌使用！從個人賣家到國際品牌，都能以 SHOPLINE 實現全通路零售，快速拓展市場到世界各地，輕鬆開始你的『 店 』商生意！</p>
             <input class="input_email" type="email" placeholder="請在此輸入電子信箱" >
             <a href="#">免費試用</a>
@@ -305,7 +333,7 @@
 
     <div class="container">
         <div class="container_about">
-            <h1>單一平台就能助你<br>在全通路輕鬆開店創業</h1>
+            <h2>單一平台就能助你<br>在全通路輕鬆開店創業</h2>
             <p>從網路商店架站到實體門市管理，只需要一個平台，就能輕鬆實現開店創業，<br>並能同步管理所有銷售管道，SHOPLINE 助你賣得更多、賣得更好！</p>
         </div>
         <div class="container_item_group">
@@ -385,14 +413,14 @@
 
         <div class="container_service">
             <div class="container_service_title">
-                <h1>更多功能與服務</h1>
+                <h2>更多功能與服務</h2>
             </div>
             <div class="container_service_feature">
                 <div class="container_service_feature_pic">
                     <img src="smalllogo6.png" alt="訂單系統">
                 </div>
                 <div class="conrainer_service_feature_text">
-                    <h2>強大庫存及訂單系統</h2>
+                    <h3>強大庫存及訂單系統</h3>
                     <p>從商品數量、貨況到訂單付款狀態、物流貨態一目瞭然，提升營運效率超有感</p>
                 </div>
             </div>
@@ -401,7 +429,7 @@
                     <img src="smalllogo1.png" alt="業績分析">
                 </div>
                 <div class="conrainer_service_feature_text">
-                    <h2>即時化商店業績分析</h2>
+                    <h3>即時化商店業績分析</h3>
                     <p>圖表化報表助你一手掌握商店概況，讓數據助攻企業成長，營運策略更有方向。</p>
                 </div>
             </div>
@@ -410,7 +438,7 @@
                     <img src="smalllogo2.png" alt="幣值切換">
                 </div>
                 <div class="conrainer_service_feature_text">
-                    <h2>多國語系、幣值切換</h2>
+                    <h3>多國語系、幣值切換</h3>
                     <p>想做跨境電商也ＯＫ！提供語言、幣別、稅金等進階功能，友善應對海外消費需求。</p>
                 </div>
             </div>
@@ -419,7 +447,7 @@
                     <img src="smalllogo3.png" alt="線上支援">
                 </div>
                 <div class="conrainer_service_feature_text">
-                    <h2>專業顧問線上支援</h2>
+                    <h3>專業顧問線上支援</h3>
                     <p>迅速、透明的溝通管道，協助你快速解決從線上到線下、從在地到海外的網店疑難。</p>
                 </div>
             </div>
@@ -428,7 +456,7 @@
                     <img src="smalllogo4.png" alt="廣告行銷">
                 </div>
                 <div class="conrainer_service_feature_text">
-                    <h2>廣告行銷加值服務</h2>
+                    <h3>廣告行銷加值服務</h3>
                     <p>由官方認證的專業投手團隊，協助品牌投遞 Facebook、Google、LINE 等廣告。</p>
                 </div>
             </div>
@@ -437,13 +465,13 @@
                     <img src="smalllogo5.png" alt="成長社群">
                 </div>
                 <div class="conrainer_service_feature_text">
-                    <h2>老闆專屬成長社群</h2>
+                    <h3>老闆專屬成長社群</h3>
                     <p>致力為品牌店家打造能深度交流且互助的生態體系，是拓展人脈、商機的絕佳場域。</p>
                 </div>
             </div>
             <div class="container_popularity">
                 <div class="container_popularity_text">
-                    <h1>人氣品牌一致推薦使用</h1>
+                    <h2>人氣品牌一致推薦使用</h2>
                 </div>
                 <div class="container_popularity_pic">
                     <img src="popularity1.png" alt="">
@@ -453,8 +481,17 @@
                     <img src="popularity5.png" alt="">
                 </div>
             </div>
+        </div>        
+        <div class="footer">
+            <div class="footer_text">
+                <h4>全亞洲超過<br>250,000 個品牌都在使用 SHOPLINE</h4>
+            </div>
+            <div class="footer_freedownload">
+                <a href="#">免費試用14天<i class="fas fa-arrow-right"></i></a>
+            </div>
         </div>
     </div>
+    
     
 </body>
 </html>
