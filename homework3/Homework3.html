@@ -77,12 +77,13 @@
         }
         .slide{
             width: 100%;
-            margin: 0 0 150px 0;
+            margin-bottom: 150px;
             background-color: rgb(0, 12, 43);
             display: flex;
         }
         .slide_text{
             width: 50%;
+            margin-top: 75px;
         }
         .slide_text h1{
             color: white;
@@ -125,7 +126,7 @@
         .slide_pic img{
             display:inline;
             width: 50%;
-            margin: 100px 0 40px 300px ;
+            margin: 150px 0 40px 300px ;
         }
         .container{
             width: 100%;
@@ -149,11 +150,17 @@
             display: flex;
             margin-bottom: 100px;
         }
+        .container_item:nth-child(even) {
+            flex-direction: row-reverse;
+        }
         .container_item_text{
             width: 50%;
             margin-left: 200px;
             padding-bottom: 100px;
-            border-bottom: 1px solid black;
+        }
+        .container_item_text :nth-child(even){
+            margin-left: 0px;
+            margin-right: 100px;
         }
         .container_item_text h3{
             font-size: 40px;
@@ -172,21 +179,56 @@
         }
         .container_item_text li{
             line-height: 30px;
-            padding-right: 25%  ;
+            width: 50%;
         }
         .container_item_text a{
             text-decoration: none;
-            
+            padding: 10px 20px;
+            transition: padding .5s 0s ease,background-color 1s 1s;
+        }
+        .container_item_text a:hover{
+            padding: 10px 40px;
         }
         .container_item_pic{
             width: 50%;
             margin-right: 200px;
-            border-bottom: 1px solid black;
+        }
+        .container_item_pic:nth-child(even){
+            margin-left: 200px;
+            margin-right: 0px;
         }
         .container_item_pic img{
             width: 75%;
-            margin-left: 100px;
             padding-top: 50px;
+        }
+        .container_service{
+            width: 100%;
+            background-color: rgb(244, 245, 247);
+        }
+        .container_service_title{
+            text-align: center;
+            padding: 50px 0 40px;
+        }
+        .container_service_feature{
+            display: flex;
+            flex-direction: row; 
+            justify-content: center;
+        }
+        .container_service_feature_pic img{
+            background-color: #fff;
+            padding : 20px ;
+            width: 50px;
+            border-radius: 50%;
+        }
+        .conrainer_service_feature_text{
+            width: 33%;
+        }
+        .conrainer_service_feature_text h2{
+            font-size: 125%;
+            text-align: center;
+        }
+        .conrainer_service_feature_text p{
+            text-align: center;
         }
     </style>
 </head>
@@ -252,7 +294,7 @@
                         <li><i class="far fa-check-circle">一頁商店</i></li>
                         <li><i class="far fa-check-circle">開放 HTML／CSS 編輯</i></li>
                     </ul>
-                    <a href="#">看看開店密技</a>
+                    <a href="#">看看開店密技<i class="fas fa-arrow-right"></i></a>
                 </div>
                 <div class="container_item_pic">
                     <img src="img1.png" alt="開店密技">
@@ -270,10 +312,10 @@
                         <li><i class="far fa-check-circle">超商／宅配貨到付款</i></li>
                         <li><i class="far fa-check-circle">發票開立與串接</i></li>
                     </ul>
-                    <a href="#">了解更多金物流</a>
+                    <a href="#">了解更多金物流<i class="fas fa-arrow-right"></i></a>
                 </div>
                 <div class="container_item_pic">
-                    <img src="img2.png" alt="開店密技">
+                    <img src="img2.png" alt="多金物流">
                 </div>
             </div>
             <div class="container_item">
@@ -288,10 +330,10 @@
                         <li><i class="far fa-check-circle">Instagram 購物功能</i></li>
                         <li><i class="far fa-check-circle">Facebook／LINE 對話式購物</i></li>
                     </ul>
-                    <a href="#">了解更多金物流</a>
+                    <a href="#">看更多優惠模組<i class="fas fa-arrow-right"></i></a>
                 </div>
                 <div class="container_item_pic">
-                    <img src="img3.png" alt="開店密技">
+                    <img src="img3.png" alt="優惠模組">
                 </div>
             </div>
             <div class="container_item">
@@ -306,11 +348,74 @@
                         <li><i class="far fa-check-circle">進銷庫存／調撥／多店管理</i></li>
                         <li><i class="far fa-check-circle">串接 Shopee 蝦皮購物庫存</i></li>
                     </ul>
-                    <a href="#">了解更多金物流</a>
+                    <a href="#">了解更多全通路整合<i class="fas fa-arrow-right"></i></a>
                 </div>
                 <div class="container_item_pic">
-                    <img src="img4.png" alt="開店密技">
+                    <img src="img4.png" alt="通路整合">
                 </div>
+            </div>
+        </div>
+
+        <div class="container_service">
+            <div class="container_service_title">
+                <h1>更多功能與服務</h1>
+            </div>
+            <div class="container_service_feature">
+                <div class="container_service_feature_pic">
+                    <img src="smalllogo6.png" alt="訂單系統">
+                </div>
+                <div class="conrainer_service_feature_text">
+                    <h2>強大庫存及訂單系統</h2>
+                    <p>從商品數量、貨況到訂單付款狀態、物流貨態一目瞭然，提升營運效率超有感</p>
+                </div>
+            </div>
+            <div class="container_service_feature">
+                <div class="container_service_feature_pic">
+                    <img src="smalllogo1.png" alt="業績分析">
+                </div>
+                <div class="conrainer_service_feature_text">
+                    <h2>即時化商店業績分析</h2>
+                    <p>圖表化報表助你一手掌握商店概況，讓數據助攻企業成長，營運策略更有方向。</p>
+                </div>
+            </div>
+            <div class="container_service_feature">
+                <div class="container_service_feature_pic">
+                    <img src="smalllogo2.png" alt="幣值切換">
+                </div>
+                <div class="conrainer_service_feature_text">
+                    <h2>多國語系、幣值切換</h2>
+                    <p>想做跨境電商也ＯＫ！提供語言、幣別、稅金等進階功能，友善應對海外消費需求。</p>
+                </div>
+            </div>
+            <div class="container_service_feature">
+                <div class="container_service_feature_pic">
+                    <img src="smalllogo3.png" alt="線上支援">
+                </div>
+                <div class="conrainer_service_feature_text">
+                    <h2>專業顧問線上支援</h2>
+                    <p>迅速、透明的溝通管道，協助你快速解決從線上到線下、從在地到海外的網店疑難。</p>
+                </div>
+            </div>
+            <div class="container_service_feature">
+                <div class="container_service_feature_pic">
+                    <img src="smalllogo4.png" alt="廣告行銷">
+                </div>
+                <div class="conrainer_service_feature_text">
+                    <h2>廣告行銷加值服務</h2>
+                    <p>由官方認證的專業投手團隊，協助品牌投遞 Facebook、Google、LINE 等廣告。</p>
+                </div>
+            </div>
+            <div class="container_service_feature">
+                <div class="container_service_feature_pic">
+                    <img src="smalllogo5.png" alt="成長社群">
+                </div>
+                <div class="conrainer_service_feature_text">
+                    <h2>老闆專屬成長社群</h2>
+                    <p>致力為品牌店家打造能深度交流且互助的生態體系，是拓展人脈、商機的絕佳場域。</p>
+                </div>
+            </div>
+            <div class="container_popularity">
+                <h1>人氣品牌一致推薦使用</h1>
             </div>
         </div>
     </div>
