@@ -135,8 +135,9 @@
     line-height: 40px;
 }
 .container_item_group{
-    width: 100%;
+    width: 75%;
     margin-top: 150px;
+    margin-left: 250px;
 }
 .container_item{
     width: 100%;
@@ -148,12 +149,8 @@
 }
 .container_item_text{
     width: 50%;
-    margin-left: 200px;
-    padding-bottom: 100px;
-}
-.container_item_text :nth-child(even){
     margin-left: 0px;
-    margin-right: 100px;
+    padding-bottom: 100px;
 }
 .container_item_text h3{
     font-size: 40px;
@@ -192,14 +189,10 @@
 }
 .container_item_pic{
     width: 50%;
-    margin-right: 200px;
-}
-.container_item_pic:nth-child(even){
-    margin-left: 200px;
     margin-right: 0px;
 }
 .container_item_pic img{
-    width: 75%;
+    width: 100%;
     padding-top: 50px;
 }
 .container_service{
