@@ -246,6 +246,8 @@
     background-color: #fff;
 }
 .container_popularity_text{
+    width: 75%;
+    margin-left: 260px;
     text-align: center;
     padding-top: 20px;
 }
@@ -253,7 +255,9 @@
     color: rgb(0, 97, 255);
 }
 .container_popularity_pic{
+    width: 75%;
     margin-top: 30px;
+    margin-left: 260px;
     margin-bottom: 30px;
     display: flex;
     flex-wrap: wrap;
@@ -262,11 +266,40 @@
 .container_popularity_pic :hover{
     background-color: #ccc;
 }
+.container_popularity_about{
+    width: 75%;
+    margin-left: 260px;
+    display: flex;
+    padding-top: 20px;
+    border-top: 1px solid gray;
+}
+.container_popularity_about_text{
+    width: 50%;
+    line-height: 30px;
+}
+.container_popularity_about_text p{
+    padding: 10px 20px;
+}
+.container_popularity_about_text a{
+    text-decoration: none;
+    padding: 10px 20px;
+    transition: padding .5s 0s ease,background-color 1s 1s;
+}
+.container_popularity_about_text a:hover{
+    padding: 10px 40px;
+}
+.container_popularity_about_pic{
+    width: 50%;
+}
+.container_popularity_about_pic img{
+    width: 100%;
+}
 .container_end{
     width: 100%;
     background-color: rgb(23, 43, 77);
 }
 .container_end_text{
+    width: 75%;
     color: white;
     font-size: 40px;
     font-family: 新細明體;
