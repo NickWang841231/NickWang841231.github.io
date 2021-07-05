@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>寶可夢圖鑑列表_作業</h1>
+    <button id="btn2">載入寶可夢圖鑑列表</button>
+    <button id="btn3">載入寶可夢圖鑑列表appendChild()</button>
+    <button id="btn4">clear</button>
+    <div id="container"></div>
+    <script>
+        let btn2 = document.getElementById("btn2");
+        let btn3 = document.getElementById("btn3");
+        let btn4 = document.getElementById("btn4");
+        //按鈕2
+        btn2.onclick =fetchPokemon;
+
+        function fetchPokemon(){
+            container.innerHTML = "";
+            let pokemons = "";
+            for(let i = 1 ; i <= 898 ; i++){
+                let fileName = i.toString().padStart(3,"0");
+                let pathFile = `https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${fileName}.png`;
+                let pokemonimg = `<img src ='${pathFile}'>`;
+                pokemons +=pokemonimg;
+            }
+            container.innerHTML = pokemons;
+        }
+
+        //按鈕3
+        btn3.addEventListener("click" , fetchPokemon_appendChild);
+        function fetchPokemon_appendChild(){
+            for(let i = 1 ; i <= 898 ; i++){
+                let fileName = i.toString().padStart(3,"0");
+                let pathFile = `https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${fileName}.png`;
+
+                let img = document.createElement("img");
+                img.setAttribute("src",pathFile);
+                container.appendChild(img);
+            }
+        }
+
+        //按鈕4
+        btn4.addEventListener("click" , pokemonClear);
+        function pokemonClear(){
+            container.innerHTML="";
+            let pokemons ="";
+        }
+    </script>
+</body>
+</html>
