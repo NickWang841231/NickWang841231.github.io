@@ -128,14 +128,14 @@
 }
 .container_end{
     background-color: rgb(23, 43, 77);
-    height: 30vh;
+    padding: 100px;
 }
 .container_end_text{
     width: 75%;
-    height: 55%;
     color: #fff;
     font-family: 新細明體;
     font-size: 30px;
+    line-height: 2em;
 }
 .container_end_text h4{
     padding-top: 30px;
