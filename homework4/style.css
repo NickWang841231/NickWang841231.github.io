@@ -103,6 +103,8 @@
 .container_service{
     background-color: rgb(244, 245, 247);
     padding: 50px 0; 
+    display: block;
+    text-align: center;
 }
 .container_service_title{
     text-align: center;
@@ -117,12 +119,12 @@
     border-radius: 50%;
 }
 .container_service_feature_item h3{
-    text-align: center;
     padding-top: 10px;
 }
 .container_service_feature_item p{
     padding-top: 10px;
     font-size: 15px;
+    text-align: left;
 }
 .container_end{
     background-color: rgb(23, 43, 77);
