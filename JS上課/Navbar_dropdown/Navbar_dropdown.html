@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 
@@ -84,8 +83,9 @@
     </ul>
 
     <script>
-        let url = "https://nickwang841231.github.io/JS%E4%B8%8A%E8%AA%B2/Computer.json";
-        let pcArray , partsArray;
+        let url =
+            "https://raw.githubusercontent.com/NickWang841231/NickWang841231.github.io/master/JS%E4%B8%8A%E8%AA%B2/Navbar_dropdown/Computer.json";
+        let pcArray, partsArray;
 
         let pcItems, partsItems;
 
@@ -108,22 +108,20 @@
                     console.log(pcArray);
                     console.log(partsArray);
 
-            // 1. pcitems
-            let pcitems = document.querySelectorAll("#pc a");
-            pcitems.forEach( (anchor , index ) => {
-                anchor.innerText = pcArray[index].pc;
-                anchor.setAttribute("href" , pcArray[index].url);
-            });
-            // 2.partsitems
-            let partsitems = document.querySelectorAll("#parts a");
-            partsitems.forEach( (anchor , index ) => {
-                anchor.innerText = partsArray[index].parts;
-                anchor.setAttribute("href" , partsArray[index].url);
-            });
+                    // 1. pcitems
+                    let pcitems = document.querySelectorAll("#pc a");
+                    pcitems.forEach((anchor, index) => {
+                        anchor.innerText = pcArray[index].pc;
+                        anchor.setAttribute("href", pcArray[index].url);
+                    });
+                    // 2.partsitems
+                    let partsitems = document.querySelectorAll("#parts a");
+                    partsitems.forEach((anchor, index) => {
+                        anchor.innerText = partsArray[index].parts;
+                        anchor.setAttribute("href", partsArray[index].url);
+                    });
                 })
         }
-            
-
     </script>
 </body>
 
