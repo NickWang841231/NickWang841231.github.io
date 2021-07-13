@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 200px;
+            padding: 10px;
+            background-color: #faf;
+            margin: auto;
+            border: 1px solid #000;
+        }
+
+        .box p {
+            text-align: center;
+        }
+
+        .set_number {
+            background-color: lightblue;
+            color: #fff;
+            margin: auto;
+            width: 100px;
+            padding: 1px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .set_number:hover {
+            background-color: blue;
+            color: #fff;
+        }
+
+        .set_number p {
+            text-align: center;
+        }
+
+        .show_number {
+            width: 100px;
+            background-color: gray;
+            display: block;
+            margin: auto;
+            margin-bottom: 10px;
+        }
+
+        .number_button {
+            display: flex;
+            flex-wrap: wrap;
+            width: 100px;
+            margin: auto;
+        }
+
+        .number {
+            width: 30px;
+            height: 30px;
+            margin: auto;
+            background-color: #000;
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 秀猜的數字範圍-->
+    <div class="box">
+        <p>0</p>
+        <p>to</p>
+        <p>100</p>
+    </div>
+
+    <!--產生亂數按鈕-->
+    <button class="set_number">
+        <p>產生數字</p>
+    </button>
+
+    <!-- 秀出猜的數字-->
+    <p class="show_number"></p>
+
+    <!--數字按鈕-->
+    <div class="number_button">
+        <button class="number">1</button>
+        <button class="number">2</button>
+        <button class="number">3</button>
+        <button class="number">4</button>
+        <button class="number">5</button>
+        <button class="number">6</button>
+        <button class="number">7</button>
+        <button class="number">8</button>
+        <button class="number">9</button>
+        <button class="number">X</button>
+        <button class="number">0</button>
+        <button class="number">V</button>
+    </div>
+
+
+    <script>
+        //產生min到max之間的亂數
+        /*
+        function getRandom(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        };
+        let number = getRandom(0,100);
+        console.log(number);
+        */
+
+        //產生亂數的函式
+        let number;
+
+
+        //產生亂數
+        let btn = document.querySelectorAll('button')[0];
+        btn.onclick = function () {
+            function getRandom(min, max) {
+                return Math.floor(Math.random() * (max - min + 1)) + min;
+            };
+            number = getRandom(0, 100);
+            console.log(number);
+        }
+
+        //顯示猜的數字
+        let show = document.querySelectorAll('p')[4];
+
+        //按鈕1
+        let btn1 = document.querySelectorAll('button')[1];
+        btn1.onclick = function () {
+            show.innerText += 1;
+        }
+
+        //按鈕2
+        let btn2 = document.querySelectorAll('button')[2];
+        btn2.onclick = function () {
+            show.innerText += 2;
+        }
+
+        //按鈕3
+        let btn3 = document.querySelectorAll('button')[3];
+        btn3.onclick = function () {
+            show.innerText += 3;
+        }
+
+        //按鈕4
+        let btn4 = document.querySelectorAll('button')[4];
+        btn4.onclick = function () {
+            show.innerText += 4;
+        }
+
+        //按鈕5
+        let btn5 = document.querySelectorAll('button')[5];
+        btn5.onclick = function () {
+            show.innerText += 5;
+        }
+
+        //按鈕6
+        let btn6 = document.querySelectorAll('button')[6];
+        btn6.onclick = function () {
+            show.innerText += 6;
+        }
+        //按鈕7
+        let btn7 = document.querySelectorAll('button')[7];
+        btn7.onclick = function () {
+            show.innerText += 7;
+        }
+
+        //按鈕8
+        let btn8 = document.querySelectorAll('button')[8];
+        btn8.onclick = function () {
+            show.innerText += 8;
+        }
+
+        //按鈕9
+        let btn9 = document.querySelectorAll('button')[9];
+        btn9.onclick = function () {
+            show.innerText += 9;
+        }
+
+        //按鈕0
+        let btn0 = document.querySelectorAll('button')[11];
+        btn0.onclick = function () {
+            show.innerText += 0;
+        }
+
+        //按鈕X 清除
+        let btnx = document.querySelectorAll('button')[10];
+        btnx.style.color = 'red';
+        btnx.onclick = function () {
+            show.innerText = '';
+        }
+        //按鈕V 判斷
+        let btnv = document.querySelectorAll('button')[12];
+        let p0 = document.querySelectorAll('p')[0];
+        let p100 = document.querySelectorAll('p')[2];
+        btnv.style.color = 'green';
+        btnv.onclick = function () {
+            if (show.innerText == number) {
+                alert('猜對了');
+            } else if (show.innerText > number) {
+                p100.innerText = `${show.innerText}`;
+                show.innerText = '';
+            } else if (show.innerText < number) {
+                p0.innerText = `${show.innerText}`;
+                show.innerText = ''
+            }
+        }
+    </script>
+</body>
+
+</html>
