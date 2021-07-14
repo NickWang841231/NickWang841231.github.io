@@ -44,7 +44,18 @@
             background-color: gray;
             display: block;
             margin: auto;
-            margin-bottom: 30px;
+            margin-bottom: 10px;
+        }
+
+        .shownumber {
+            width: 150px;
+            height: 30px;
+            border: 1px solid #000;
+            text-align: center;
+            font-size: 20px;
+            margin: auto;
+            margin-top: 20px;
+            margin-bottom: 20px;
         }
 
         .number_button {
@@ -71,9 +82,9 @@
 <body>
     <!-- 秀猜的數字範圍-->
     <div class="box">
-        <p>0</p>
+        <p></p>
         <p>to</p>
-        <p>100</p>
+        <p></p>
     </div>
 
     <!--產生亂數按鈕-->
@@ -82,7 +93,7 @@
     </button>
 
     <!-- 秀出猜的數字-->
-    <p class="show_number"></p>
+    <div class="shownumber"></div>
 
     <!--數字按鈕-->
     <div class="number_button">
@@ -121,12 +132,12 @@
             function getRandom(min, max) {
                 return Math.floor(Math.random() * (max - min + 1)) + min;
             };
-            number = getRandom(0, 100);
+            number = getRandom(1, 99);
             console.log(number);
         }
 
         //顯示猜的數字
-        let show = document.querySelectorAll('p')[4];
+        let show = document.querySelectorAll('div')[1];
 
         //按鈕1
         let btn1 = document.querySelectorAll('button')[1];
@@ -197,16 +208,39 @@
         let btnv = document.querySelectorAll('button')[12];
         let p0 = document.querySelectorAll('p')[0];
         let p100 = document.querySelectorAll('p')[2];
+        p0.innerText = 0;
+        p100.innerText = 100;
+        let rangemin , rangemax ;
         btnv.style.color = 'green';
         btnv.onclick = function () {
-            if (show.innerText == number) {
-                alert('猜對了');
-            } else if (show.innerText > number) {
-                p100.innerText = `${show.innerText}`;
+            if (show.innerText == 0 || show.innerText > 100) {
+                alert('輸入數字不符1 ~ 99，請重新輸入');
                 show.innerText = '';
-            } else if (show.innerText < number) {
+            }
+            else if(show.innerText < rangemin){
+                alert(`輸入數字錯誤，不可以小於${rangemin}，請重新輸入`);
+            }
+            else if (show.innerText > rangemax){
+                alert(`輸入數字錯誤，不可以大於${rangemax}，請重新輸入`);
+            }
+            else if (show.innerText > p100) {
+                alert(`輸入數字不能超過${p100.innerText}`);
+            }
+            else if (show.innerText < number) {
                 p0.innerText = `${show.innerText}`;
+                rangemin = p0.innerText;
+                show.innerText = '';
+                
+            }
+            else if (show.innerText > number) {
+                p100.innerText = `${show.innerText}`;
+                rangemax = p100.innerText;
                 show.innerText = ''
+                
+            }
+            else if (show.innerText == number){
+                alert(`猜對了答案是：${number}`);
+                show.innerText = '';
             }
         }
     </script>
