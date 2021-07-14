@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <title>HI</title>
+    <style>
+        .d-grid {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row mt-3">
+            <div class="btn-group" role="group">
+                <button class="btn btn-outline-primary">開始</button>
+                <button class="btn btn-outline-primary">放棄重來</button>
+                <button class="btn btn-outline-primary">看答案</button>
+            </div>
+        </div>
+        <ul class="list-group mt-3">
+
+        </ul>
+        <div class="input-group">
+            <span class="input-group-text">猜答案</span>
+            <input type="text" class="form-control">
+            <button class="input-group-text btn btn-outline-info">猜!</button>
+        </div>
+    </div>
+
+
+    <script>
+        //亂數存放
+        let number = '';
+        let numstr;
+        
+
+        function getRandom(x) {
+            return Math.floor(Math.random() * x);
+        };
+
+        //開始按鈕 產生亂數
+        let start = document.querySelectorAll('button')[0];
+        start.onclick = function () {
+            // 產生4個不重複亂數
+            var str = '';
+            var arr = [];
+            for (i = 0; i < 4; i++) {
+                str = Math.round(Math.random() * 9);
+                for (j = 0; j < arr.length; j++) {
+                    if (arr[j] == str) {
+                        arr.splice(j, 1);
+                        i--;
+                    }
+                }
+                arr.push(str);
+            }
+            //陣列亂數 轉成字串亂數
+            numstr = arr.join('');
+
+            //字串亂數轉成整數亂數
+            number = parseInt(numstr);
+            console.log(number);    
+        };
+
+        // 放棄按鈕 重新
+        let giveup = document.querySelectorAll('button')[1];
+        giveup.onclick = function () {
+            alert(`答案是：${number} 重新設定新的數`)
+            number = '';
+            
+        }
+
+        // 看答案按鈕
+        let showans = document.querySelectorAll('button')[2];
+        showans.onclick = function () {
+            alert(`答案是：${number}`);
+        }
+
+        // 輸入數字
+        let inputnumber = document.querySelector('input');
+        let guessnumber = document.querySelectorAll('button')[3];
+        let ul = document.querySelector('ul');
+        guessnumber.onclick = function () {
+
+            // 加入幾A 幾B
+            let A = 0,B = 0;
+
+            // 把輸入的數字切開
+            let inputemp = inputnumber.value.split('');
+            //console.log(inputemp);
+            // 把答案的數字切開
+            //let numbertemp = numstr.split('');
+            //console.log(numbertemp);
+            
+            // 判斷輸入是否超過4位數
+            if(inputemp.length > 4){
+                alert('輸入數字不可超過四位數')
+                inputnumber.value = '';
+            }
+
+            // 判斷輸入是否空白
+            else if (inputemp[0] ==null || inputemp[1] ==null || inputemp[2] ==null || inputemp[3] ==null ){
+                alert('輸入不可空白');
+            }
+            //判斷輸入是否有重複
+            else if(inputemp[0] == inputemp[1] || inputemp[0] == inputemp[2] || inputemp[0] == inputemp[3] || inputemp[1] == inputemp[2]
+            || inputemp[1] == inputemp[3] || inputemp[2] == inputemp[3]){
+                alert('不可輸入重複的數字');
+                inputnumber.value = '';
+            }
+            else{
+                // 產生li 加入猜的數字
+                let li = document.createElement('li');
+                li.classList = 'list-group-item';
+                li.innerText = inputnumber.value;
+                ul.appendChild(li);
+                inputnumber.value = '';
+                
+                // 產生span 並判斷幾A幾B
+                compare();
+                let span = document.createElement('span');
+                span.classList = 'badge bg-danger';
+                if(A == 4){
+                    span.classList = 'badge bg-success'
+                }
+                span.innerText = `${A}A ${B}B`;
+                li.appendChild(span);
+                
+            }
+            //判斷幾A幾B
+            function compare (){
+                let numbertemp = numstr.split('');
+                console.log(numbertemp);
+                for(let i=0; i<=3; i++){
+                    //數字對 位置對
+                    if(inputemp[i] == numbertemp[i]){   
+                        A += 1;
+                    }
+                    // 數字對
+                    else if(inputemp[i] == numbertemp[0] || inputemp[i] == numbertemp[1] || 
+                            inputemp[i] == numbertemp[2] || inputemp[i] == numbertemp[3]){   
+                        B += 1;
+                    }
+                }
+            }
+        }
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+    </script>
+</body>
+
+</html>
