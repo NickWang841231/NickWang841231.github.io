@@ -1,0 +1,64 @@
+.nav_container{
+    position: sticky;
+    top: 0;
+    display: flex;
+    justify-content: space-between;
+
+}
+.mac_shop h2{
+    margin-top: 20px;
+}
+.container_main_pic img{
+    display: flex;
+    margin: auto;
+    padding-top: 50px;
+}
+.mac_commodity{
+    display: flex;
+    flex-wrap: wrap;
+    border-bottom: 1px solid gray;
+}
+.mac_commodity button{
+    width: 100%;
+    margin: 10px;
+    border-radius: 20px;
+}
+.mac_color{
+    display: flex;
+    flex-wrap: wrap;
+    border-bottom: 1px solid gray;
+}
+.mac_color img{
+    width: 25%;
+    display: flex;
+    margin: auto;
+}
+.mac_color button{
+    width: 45%;
+    margin: 10px;
+    border-radius: 20px;
+}
+.mac_color button:hover{
+    background-color: #fff;
+    color: rgb(108, 117, 125);
+}
+.mac_storage{
+    display: flex;
+    flex-wrap: wrap;
+}
+.mac_storage button{
+    width: 45%;
+    margin: 10px;
+    padding: 30px;
+    border-radius: 20px;
+}
+.mac_connect{
+    display: flex;
+    flex-wrap: wrap;
+}
+.mac_connect button{
+    width: 45%;
+    margin: 10px;
+    padding: 30px;
+    border-radius: 20px;
+}

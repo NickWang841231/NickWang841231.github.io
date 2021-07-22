@@ -1,0 +1,68 @@
+.nav_container{
+    position: sticky;
+    top: 0;
+    display: flex;
+    justify-content: space-between;
+
+}
+.ipad_shop h2{
+    margin-top: 20px;
+}
+.container_main_pic img{
+    display: flex;
+    margin: auto;
+    position: sticky;
+    top: 0;
+}
+.ipad_commodity{
+    display: flex;
+    flex-wrap: wrap;
+    border-bottom: 1px solid gray;
+}
+.ipad_commodity button{
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 15px;
+    border-radius: 20px;
+}
+.ipad_color{
+    display: flex;
+    flex-wrap: wrap;
+    border-bottom: 1px solid gray;
+}
+.ipad_color img{
+    width: 25%;
+    display: flex;
+    margin: auto;
+    
+}
+.ipad_color button{
+    width: 45%;
+    margin: 10px;
+    border-radius: 20px;
+}
+.ipad_color button:hover{
+    background-color: #fff;
+    color: rgb(108, 117, 125);
+}
+.ipad_storage{
+    display: flex;
+    flex-wrap: wrap;
+    border-bottom: 1px solid gray;
+}
+.ipad_storage button{
+    width: 45%;
+    margin: 10px;
+    padding: 30px;
+    border-radius: 20px;
+}
+.ipad_connect{
+    display: flex;
+    flex-wrap: wrap;
+}
+.ipad_connect button{
+    width: 45%;
+    margin: 10px;
+    padding: 30px;
+    border-radius: 20px;
+}
