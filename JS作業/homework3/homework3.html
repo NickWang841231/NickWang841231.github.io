@@ -128,7 +128,7 @@
 
 
     <script>
-        let ipadimg = document.querySelector('ipadtotalpic_img');
+        let ipadimg = document.querySelector('.ipadtotalpic_img');
         let spacegray = document.querySelectorAll('button')[0];
         let silver = document.querySelectorAll('button')[1];
         let rosegold = document.querySelectorAll('button')[2];
@@ -144,13 +144,26 @@
         xhr.onload = function () {
             let ipadair = this.response;
 
-            function cooseimg(choosecolor) {
+            function changeimg(choosecolor) {
                 let ipadchaneimg = ipadair.find(item => item.color == choosecolor)
                 ipadimg.setAttribute('src', ipadchaneimg.picture);
             }
             spacegray.onclick = function () {
                 choosecolor = 'spacegray';
             }
+            silver.onclick = function () {
+                choosecolor = 'silver';
+            }
+            rosegold.onclick = function () {
+                choosecolor = 'rosegold';
+            }
+            green.onclick = function () {
+                choosecolor = 'green';
+            }
+            skyblue.onclick = function () {
+                choosecolor = 'skyblue';
+            }
+
         }
     </script>
 

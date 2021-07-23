@@ -16,7 +16,7 @@
     },
     {
         "id": "A003",
-        "color": "rose",
+        "color": "rosegold",
         "price": 18900,
         "storage": "64GB",
         "network": "Wi-Fi",
@@ -32,7 +32,7 @@
     },
     {
         "id": "A005",
-        "color": "blue",
+        "color": "skyblue",
         "price": 18900,
         "storage": "64GB",
         "network": "Wi-Fi",
@@ -56,7 +56,7 @@
     },
     {
         "id": "B003",
-        "color": "rose",
+        "color": "rosegold",
         "price": 23900,
         "storage": "256GB",
         "network": "Wi-Fi",
@@ -72,7 +72,7 @@
     },
     {
         "id": "B005",
-        "color": "blue",
+        "color": "skyblue",
         "price": 23900,
         "storage": "256GB",
         "network": "Wi-Fi",
@@ -96,7 +96,7 @@
     },
     {
         "id": "C003",
-        "color": "rose",
+        "color": "rosegold",
         "price": 23200,
         "storage": "64GB",
         "network": "Cellular",
@@ -112,7 +112,7 @@
     },
     {
         "id": "C005",
-        "color": "blue",
+        "color": "skyblue",
         "price": 23200,
         "storage": "64GB",
         "network": "Cellular",
@@ -136,7 +136,7 @@
     },
     {
         "id": "D003",
-        "color": "rose",
+        "color": "rosegold",
         "price": 28200,
         "storage": "256GB",
         "network": "Cellular",
@@ -152,7 +152,7 @@
     },
     {
         "id": "D005",
-        "color": "blue",
+        "color": "skyblue",
         "price": 28200,
         "storage": "256GB",
         "network": "Cellular",
