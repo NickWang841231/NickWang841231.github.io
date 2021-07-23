@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <title>HI</title>
+    <style>
+        .ipadtotalpic img {
+            width: 100%;
+        }
+
+        .ipad_color img {
+            width: 25%;
+            margin: auto;
+        }
+
+        .ipad_color button {
+            border-radius: 20px;
+            margin: 10px;
+            width: 45%;
+        }
+
+        .ipad_color button:hover {
+            background-color: #fff;
+            color: rgb(108, 117, 125);
+        }
+
+        .choosestorage button {
+            border-radius: 20px;
+            width: 45%;
+            margin: 10px;
+            padding: 20px;
+        }
+
+        .choosewifi button {
+            border-radius: 20px;
+            width: 45%;
+            margin: 10px;
+            padding: 20px;
+        }
+
+        .totalprice button {}
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-md-6">
+                <div class="ipadtotalpic">
+                    <img class="ipadtotalpic_img"
+                        src="https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/ipad-air-select-202009?wid=886&hei=1070&fmt=jpeg&qlt=80&.v=1599066777000"
+                        alt="">
+                </div>
+            </div>
+            <div class="col-12 col-md-6 ps-2">
+                <div class="ipad_title mt-5">
+                    <h1>購買iPad Air</h1>
+                </div>
+                <div class="ipad_color mt-5 fs-4 ">
+                    <p>挑選顏色</p>
+                    <div class="choosecolor d-flex flex-wrap">
+                        <button class="btn  btn-outline-secondary ">
+                            <img class="d-flex flex-wrap"
+                                src="https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/finish-spacegray-201903?wid=204&amp;hei=204&amp;fmt=png-alpha&amp;.v=1552422652805 alt=">
+                            <span>太空灰色</span>
+                        </button>
+                        <button class="btn  btn-outline-secondary ">
+                            <img class="d-flex flex-wrap"
+                                src="https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/finish-silver-201903?wid=204&amp;hei=204&amp;fmt=png-alpha&amp;.v=1552422655664">
+                            <span>銀色</span>
+                        </button>
+                        <button class="btn  btn-outline-secondary ">
+                            <img class="d-flex flex-wrap"
+                                src="https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/finish-gold-202009?wid=204&amp;hei=204&amp;fmt=jpeg&amp;qlt=80&amp;.v=1599240136000">
+                            <span>玫瑰金色</span>
+                        </button>
+                        <button class="btn  btn-outline-secondary ">
+                            <img class="d-flex flex-wrap"
+                                src="https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/finish-green-202009?wid=204&amp;hei=204&amp;fmt=jpeg&amp;qlt=80&amp;.v=1599240136000">
+                            <span>綠色</span>
+                        </button>
+                        <button class="btn  btn-outline-secondary ">
+                            <img class="d-flex flex-wrap"
+                                src="https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/finish-blue-202009?wid=204&amp;hei=204&amp;fmt=png-alpha&amp;.v=1599240136000">
+                            <span>天藍色</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="ipadstorage mt-5 fs-4">
+                    <p>儲存裝置</p>
+                    <div class="choosestorage">
+                        <button class="btn btn-outline-secondary">
+                            <p>64GB</p>
+                            <span>NT$18,900起</span>
+                        </button>
+                        <button class="btn btn-outline-secondary">
+                            <p>256GB</p>
+                            <span>NT$23,900起</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="connectwifi">
+                    <p>連線能力</p>
+                    <div class="choosewifi">
+                        <button class="btn btn-outline-secondary">
+                            Wi-Fi
+                        </button>
+                        <button class="btn btn-outline-secondary">
+                            Wi-Fi + 行動網路
+                        </button>
+                    </div>
+                </div>
+                <div class="ipadtotalprice">
+                    <span class="totalprice"></span>
+                    <button class="btn btn-primary fw-bolder">繼續</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        let ipadimg = document.querySelector('ipadtotalpic_img');
+        let spacegray = document.querySelectorAll('button')[0];
+        let silver = document.querySelectorAll('button')[1];
+        let rosegold = document.querySelectorAll('button')[2];
+        let green = document.querySelectorAll('button')[3];
+        let skyblue = document.querySelectorAll('button')[4];
+
+        let choosecolor, choosestorage, choosewifi;
+
+
+        let url = 'https://nickwang841231.github.io/JS%E4%BD%9C%E6%A5%AD/homework3/iPad.json';
+
+        let xhr = new XMLHttpRequest();
+        xhr.onload = function () {
+            let ipadair = this.response;
+
+            function cooseimg(choosecolor) {
+                let ipadchaneimg = ipadair.find(item => item.color == choosecolor)
+                ipadimg.setAttribute('src', ipadchaneimg.picture);
+            }
+            spacegray.onclick = function () {
+                choosecolor = 'spacegray';
+            }
+        }
+    </script>
+
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+    </script>
+</body>
+
+</html>

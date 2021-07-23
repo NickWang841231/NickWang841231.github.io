@@ -1,6 +1,6 @@
 [{
         "id": "A001",
-        "color": "gray",
+        "color": "spacegray",
         "price": 18900,
         "storage": "64GB",
         "network": "Wi-Fi",
@@ -40,7 +40,7 @@
     },
     {
         "id": "B001",
-        "color": "gray",
+        "color": "spacegray",
         "price": 23900,
         "storage": "256GB",
         "network": "Wi-Fi",
@@ -80,7 +80,7 @@
     },
     {
         "id": "C001",
-        "color": "gray",
+        "color": "spacegray",
         "price": 23200,
         "storage": "64GB",
         "network": "Cellular",
@@ -120,7 +120,7 @@
     },
     {
         "id": "D001",
-        "color": "gray",
+        "color": "spacegray",
         "price": 28200,
         "storage": "256GB",
         "network": "Cellular",
