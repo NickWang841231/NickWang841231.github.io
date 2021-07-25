@@ -46,7 +46,6 @@
             padding: 20px;
         }
 
-        .totalprice button {}
     </style>
 </head>
 
@@ -118,9 +117,10 @@
                         </button>
                     </div>
                 </div>
-                <div class="ipadtotalprice">
-                    <span class="totalprice"></span>
-                    <button class="btn btn-primary fw-bolder">繼續</button>
+                <div class="ipadtotalprice mt-5">
+                    <span class="totalprice fs-5"></span>
+                    <br>
+                    <button class="btn btn-primary fw-bolder mt-1">繼續</button>
                 </div>
             </div>
         </div>
@@ -128,43 +128,94 @@
 
 
     <script>
-        let ipadimg = document.querySelector('.ipadtotalpic_img');
+        let url = 'https://nickwang841231.github.io/JS%E4%BD%9C%E6%A5%AD/homework3/iPad.json';
+        let ipadtotalimg = document.querySelector('.ipadtotalpic_img');
         let spacegray = document.querySelectorAll('button')[0];
         let silver = document.querySelectorAll('button')[1];
         let rosegold = document.querySelectorAll('button')[2];
         let green = document.querySelectorAll('button')[3];
         let skyblue = document.querySelectorAll('button')[4];
+        let gb64 = document.querySelectorAll('button')[5];
+        let gb256 = document.querySelectorAll('button')[6];
+        let wifi = document.querySelectorAll('button')[7];
+        let wifiplus = document.querySelectorAll('button')[8];
 
-        let choosecolor, choosestorage, choosewifi;
+        let totalprice = document.querySelector('.totalprice');
 
-
-        let url = 'https://nickwang841231.github.io/JS%E4%BD%9C%E6%A5%AD/homework3/iPad.json';
+        let changecolor;
 
         let xhr = new XMLHttpRequest();
         xhr.onload = function () {
             let ipadair = this.response;
-
-            function changeimg(choosecolor) {
-                let ipadchaneimg = ipadair.find(item => item.color == choosecolor)
-                ipadimg.setAttribute('src', ipadchaneimg.picture);
-            }
+            /*ipadair.forEach((ipad , index) =>{
+                let values = Object.values(ipad)[5];
+                console.log(values);
+                console.log(index);
+            })
+            */
+            /*let r1 = ipadair.find ( x =>x.color =='spacegray');
+            console.log(r1.picture);
+            */
+            let changepic;
             spacegray.onclick = function () {
-                choosecolor = 'spacegray';
+                changepic = ipadair.find ( x => x.color == 'spacegray');
+                ipadtotalimg.setAttribute('src',changepic.picture);
             }
             silver.onclick = function () {
-                choosecolor = 'silver';
+                changepic = ipadair.find ( x => x.color == 'silver');
+                ipadtotalimg.setAttribute('src',changepic.picture);
             }
             rosegold.onclick = function () {
-                choosecolor = 'rosegold';
+                changepic = ipadair.find ( x => x.color == 'rosegold');
+                ipadtotalimg.setAttribute('src',changepic.picture);
             }
             green.onclick = function () {
-                choosecolor = 'green';
+                changepic = ipadair.find ( x => x.color == 'green');
+                ipadtotalimg.setAttribute('src',changepic.picture);
             }
             skyblue.onclick = function () {
-                choosecolor = 'skyblue';
+                changepic = ipadair.find ( x => x.color == 'skyblue');
+                ipadtotalimg.setAttribute('src',changepic.picture);
+            }
+            /*
+            let r2 = ipadair.find( x => x.storage == '64GB');
+            console.log(r2.price);
+            */
+            let wifiprice , wifiplusprice; 
+            let storage64wifiprice,storage64wifiplusprice;
+            gb64.onclick = function () {
+                storage64wifiprice = ipadair.find( x => x.storage == '64GB' && x.network == 'Wi-Fi');
+                //console.log(storage64wifiprice.price);
+                wifiprice = storage64wifiprice.price
+                storage64wifiplusprice = ipadair.find( x => x.storage == '64GB' && x.network == 'Cellular');
+                //console.log(storage64wifiplusprice.price);
+                wifiplusprice = storage64wifiplusprice.price;
+            }
+            let storage256wifiprice,storage256wifiplusprice;
+            gb256.onclick = function () {
+                storage256wifiprice = ipadair.find( x => x.storage == '256GB' && x.network == 'Wi-Fi');
+                //console.log(storage256wifiprice.price);
+                wifiprice = storage256wifiprice.price;
+                storage256wifiplusprice = ipadair.find( x => x.storage == '256GB' && x.network == 'Cellular');
+                //console.log(storage256wifiplusprice.price);
+                wifiplusprice = storage256wifiplusprice.price;
             }
 
+            wifi.onclick = function () {
+                totalprice.innerText = `NT$${wifiprice}`;
+            }
+            wifiplus.onclick = function () {
+                totalprice.innerText = `NT$${wifiplusprice}`;
+            }
         }
+
+
+
+
+
+        xhr.responseType = 'json';
+        xhr.open('GET',url);
+        xhr.send();        
     </script>
 
 
