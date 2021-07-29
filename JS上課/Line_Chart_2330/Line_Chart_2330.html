@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+        integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"
+        integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" crossorigin="anonymous">
+    </script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"
+        integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous">
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="jumbotron alert-success">
+            <h2>以Line Chart折線圖繪製2020年台積電股價走勢</h2>
+        </div>
+        <canvas id="myChart"></canvas>
+    </div>
+    <script>
+        const url2330 =
+            'https://raw.githubusercontent.com/NickWang841231/NickWang841231.github.io/master/JS%E4%B8%8A%E8%AA%B2/2330.json';
+        var ctx, chart, array2330,
+            ctx = document.getElementById("myChart");
+
+        window.onload = () => {
+
+            var promise1 = XhrCall(url2330);
+            var promise1 = fetchJSON(url2330);
+            var promise1 = asyncFetchJSON(url2330);
+
+            promise1
+                .then(result => {
+                    //把文字格式 轉成陣列
+                    array2330 = JSON.parse(result);
+                    console.log(array2330);
+                    /*
+                    let dateArray = [] , priceArray = [];
+                    array2330.forEach( item => {
+                        dateArray.push(item.Date);
+                        priceArray.push(item.Price);
+                    });
+
+                    drawChart( dateArray , priceArray);
+                    */
+                    //最佳化 上面可以簡化成下面
+                    drawChart(array2330.map(x => x.Date), array2330.map(x => x.Price));
+                })
+                .catch();
+        }
+        //繪圖部分
+        function drawChart(dateArray, priceArray) {
+            chart = new Chart(ctx, {
+                type: "line",
+                data: {
+                    labels: dateArray,
+                    datasets: [{
+                        label: "台積電",
+                        data: priceArray,
+                        fill: false,
+                        backgroundColor: 'rgba(255,165,0,0.3)',
+                        borderColor: 'rgb(255,165,0)',
+                        pointStyle: "circle",
+                        pointBackgroundColor: 'rgb(0,255,0)',
+                        pointRadius: 5,
+                        pointHoverRadius: 10,
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    title: {
+                        display: true,
+                        fontSize: 26,
+                        text: '2020年台積電股價'
+                    },
+                    tooltips: {
+                        mode: 'point',
+                        intersect: true,
+                    },
+                    legend: {
+                        position: 'bottom',
+                        labels: {
+                            fontColor: 'black',
+                        }
+                    }
+                }
+            });
+        }
+
+        //負責網路抓資料 。回傳promise
+        function XhrCall(url) {
+            let promise1 = new Promise((resolve, reject) => {
+                const xhr = new XMLHttpRequest();
+                xhr.onload = () => {
+                    resolve(xhr.responseText);
+                };
+                xhr.onerror = () => {
+                    reject(xhr.status);
+                };
+                xhr.open('GET', url);
+                xhr.send();
+            });
+            return promise1;
+        }
+
+
+        //負責網路抓資料 。回傳promise fetch版本
+        function fetchJSON(url) {
+            return fetch(url).then(r => r.text());
+        }
+
+        async function asyncFetchJSON(url){
+            let response = await fetch(url);
+            let result = await response.text();
+
+            return result;
+        }
+
+    </script>
+
+
+</body>
+
+</html>
