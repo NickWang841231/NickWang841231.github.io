@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            margin: auto;
+            width: 600px;
+            height: 600px;
+            background-color: rgba(255 , 0 , 0 , .3);
+            position: relative;
+        }
+        .block{
+            width: 200px;
+            height: 200px;
+            background-color: greenyellow;
+            position: absolute;
+        }
+        .btn-group{
+            margin-top: 30px;
+            padding-left: 650px ;
+        }
+        .btn-group button{
+            padding: 20px;
+            margin: 5px;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="box">
+        <div style="top: 0; left: 0;" class="block" id="b1"></div>
+    </div>
+    <div class="btn-group">
+        <button id="x-btn">右移動</button>
+        <button id="y-btn">下移動</button>
+        <button id="rx-btn">左移動</button>
+        <button id="ry-btn">上移動</button>
+        <button id="reset-btn">reset</button>
+    </div>
+
+    <script>
+        document.querySelector('#x-btn').addEventListener('click' , function () {
+            moveX('b1' , 200)
+                .then( res => {
+                    console.log(res);
+                    //移動完成 要做什麼事情.....
+                });
+        });
+        document.querySelector('#y-btn').addEventListener('click' , function () {
+            moveY('b1' , 200)
+                .then( res => {
+                    console.log(res);
+                    //移動完成 要做什麼事情.....
+                });
+        });
+        document.querySelector('#rx-btn').addEventListener('click' , function () {
+            moveX('b1' , -200)
+                .then( res => {
+                    console.log(res);
+                    //移動完成 要做什麼事情.....
+                });
+        });
+        document.querySelector('#ry-btn').addEventListener('click' , function () {
+            moveY('b1' , -200)
+                .then( res => {
+                    console.log(res);
+                    //移動完成 要做什麼事情.....
+                });
+        });
+        document.querySelector('#reset-btn').addEventListener('click' , function () {
+            let box = document.getElementById('b1');
+            box.style.left = 0;
+            box.style.top = 0;
+
+        });
+
+        function moveX(id , x){
+            let box = document.getElementById(id);
+            let target = parseInt(box.style.left , 10) + x ;
+            let time = 100;
+            // v = s / t 速率 = 距離 / 時間
+            let perMove = x / time ;
+
+            return new Promise( (resolove , reject) => {
+                for (let i = 1 ; i <= time ; i++){
+                    setTimeout( () => {
+                        box.style.left = parseInt(box.style.left) + perMove + 'px' ; 
+                        if(parseInt (box.style.left , 10) == target){
+                            resolove('X移動完成');
+                        }
+                    } , 10 * i);
+                }
+            });
+        }
+        function moveY(id , y){
+            let box = document.getElementById(id);
+            let target = parseInt(box.style.top , 10) + y ;
+            let time = 100;
+            // v = s / t 速率 = 距離 / 時間
+            let perMove = y / time ;
+
+            return new Promise( (resolove , reject) => {
+                for (let i = 1 ; i <= time ; i++){
+                    setTimeout( () => {
+                        box.style.top = parseInt(box.style.top) + perMove + 'px' ; 
+                        if(parseInt (box.style.top , 10) == target){
+                            resolove('Y移動完成');
+                        }
+                    } , 10 * i);
+                }
+            });
+        }
+    </script>
+</body>
+</html>
