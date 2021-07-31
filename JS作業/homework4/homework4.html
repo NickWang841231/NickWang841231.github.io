@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LOL英雄聯盟圖鑑</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+    <style>
+        .card {
+            border: 1px solid black;
+            margin-bottom: 30px;
+            overflow: hidden;
+        }
+
+        .headshot {
+            overflow: hidden;
+        }
+
+        .card-title {
+            color: white;
+            background-color: black;
+            display: inline-block;
+            border-radius: 5px;
+            padding: 5px 15px 5px 15px;
+        }
+
+        .card-body {
+            background-color: #ffbf67;
+        }
+
+        .card:hover {
+            box-shadow: 8px 8px 15px #808080;
+            transform: translate(5px, 5px);
+        }
+
+        .card:hover img {
+            transform: scale(1.2);
+            transition: transform 0.5s;
+        }
+
+        .card:not(:hover) img {
+            transform: scale(1, 1);
+            transition: transform 0.3s;
+        }
+
+        .card:hover .card-body {
+            background-color: lightgreen !important;
+        }
+
+        .card:hover .card-title {
+            color: black;
+            background-color: white !important;
+        }
+        .card-text{
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+        }
+        .modal-body img {
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class='container-fluid'>
+        <div class='jumbotron bg-success'>
+            <h1>LOL英雄聯盟圖鑑</h1>
+        </div>
+
+        <div class='row mx-5'>
+
+        </div>
+    </div>
+
+
+    <template id='cardlol'>
+        <div class="card" style="width: 18rem;">
+            <img src="" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title"></h5>
+                <p class="card-text"></p>
+                <button href="#" class="btn btn-primary" id="detail">詳細</a>
+                <button href="#" class="btn btn-danger mx-2">影片</a>
+            </div>
+        </div>
+    </template>
+
+    <!-- Modal -->
+    <div class="modal fade" id="lolModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <img id="lolImage">
+                    <p id="hp" class="text-dark mt-2">HP：</p>
+                    <p id="move-speed" class="text-dark">Move Speed：</p>
+                    <p id="armor" class="text-dark">Armor：</p>
+                    <p id="spell-block" class="text-dark">Spell Block：</p>
+                    <p id="attackrange" class="text-dark">Attack Range：</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script type='module'>
+        import { $g } from '../homework4/Modules/helpers.js';
+        let row = $g('.row');
+        let card = $g('#cardlol');
+
+        let url = 'https://ddragon.leagueoflegends.com/cdn/10.22.1/data/zh_TW/champion.json';
+
+        let championsObject = {};
+        let championArray = [];
+        window.onload = function () {
+
+            fetch(url)
+                .then(response => response.json())
+                .then(result => {
+                    //整個陣列
+                    championsObject = result.data;
+                    //console.log(championsObject);
+
+                    //個人物陣列
+                    championArray = Object.keys(championsObject);
+                    //console.log(championArray);
+
+                    setcard();
+                })
+        };
+
+        function setcard(){
+            championArray.forEach((champion , index) => {
+                //複製card內容
+                let clone = cardlol.content.cloneNode(true);
+                clone.querySelector("img").src = `https://ddragon.leagueoflegends.com/cdn/img/champion/splash/${champion}_0.jpg`;
+                clone.querySelector('h5').innerText = `${index+1} ： ${champion} - ${championsObject[champion].name}`;
+                clone.querySelector('p').innerText = championsObject[champion].blurb;
+
+                let btndetail = document.querySelectorAll('#detail');
+                btndetail.forEach((item , index) =>{
+                    item.onclick = function(){
+                        this.setAttribute('data-toggle', 'modal');
+                        this.setAttribute('data-target', '#lolModal');
+                        setmodal(index);
+                        //alert(`hi${index}`);
+                    }
+                });
+                row.append(clone);
+            });
+        }
+
+        function setmodal(index){
+            let championname = championArray[index];
+            //modal顯示的內容
+            let modal = document.querySelector('#lolModal');
+            modal.querySelector('h5').innerText = `${championname} - ${championsObject[championname].name}`;
+            modal.querySelector('#lolImage').src =`https://ddragon.leagueoflegends.com/cdn/img/champion/splash/${championname}_0.jpg`;
+            //console.log(championsObject[championname].stats.hp);
+            modal.querySelector('#hp').innerText = `HP：${championsObject[championname].stats.hp}`;
+            modal.querySelector('#move-speed').innerText = `Move Speed：${championsObject[championname].stats.movespeed}`;
+            modal.querySelector('#armor').innerText = `Armor：${championsObject[championname].stats.armor}`;
+            modal.querySelector('#spell-block').innerText = `Spell Block：${championsObject[championname].stats.spellblock}`;
+            modal.querySelector('#attackrange').innerText = `Attack Range：${championsObject[championname].stats.attackrange}`;
+            //console.log(modal);
+        }
+            
+
+
+    </script>
+    
+
+
+
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous">
+    </script>
+</body>
+
+</html>
