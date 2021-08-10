@@ -15,5 +15,5 @@ function $c(element) {
     return document.createElement(element);
 }
 
-export {$g ,$c};
+export {$g};
 

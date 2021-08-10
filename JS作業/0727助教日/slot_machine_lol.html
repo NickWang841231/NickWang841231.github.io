@@ -1,0 +1,310 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css"
+        integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
+    <title>今天玩哪隻英雄</title>
+    <style>
+        body {
+            background-color: #000;
+        }
+        .row {
+            display: flex;
+            justify-content: center;
+        }
+        [id] {
+            width: 100px;
+            height: 65px;
+            transition: .3s;
+        }
+        [id].active {
+            border: solid 1px #faf;
+            box-shadow: 0 0 20px #faf;
+            transition: 0s;
+        }
+        .col-1 {
+            display: flex;
+        }
+        .lolpic {
+            width: 100%;
+            margin: auto;
+        }
+        #lolModal {
+            width: 100%;
+            height: 100%;
+        }
+        #exampleModalLabel {
+            width: 100%;
+            height: 0px;
+        }
+        .modal-body img {
+            width: 100%;
+        }
+        #lolImage,
+        #loltitle,
+        #depiction,
+        #hp,
+        #move-speed,
+        #move-speed,
+        #armor,
+        #spell-block,
+        #attackrange {
+            width: 100%;
+            height: 100%;
+        }
+        .modal-backdrop {
+            background-color: #aff;
+        }
+        .modal-title{
+            text-align: center;
+        }
+        #loltitle{
+            text-align: center;
+            font-size: x-large;
+            font-weight: 900;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container mt-2">
+
+    </div>
+    <!-- 隨機選擇英雄 button-->
+    <div class="container mt-3">
+        <button type="button" class="btn btn-outline-secondary btn-lg btn-block">Start</button>
+    </div>
+    <!-- Modal button-->
+    <div class="container mt-3">
+        <button type="button" disabled="disabled"
+            class="btnshow btn btn-outline-secondary btn-lg btn-block">show</button>
+    </div>
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="lolModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title font-weight-bold" id="exampleModalLabel">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <img id="lolImage">
+                    <p id="loltitle" class="text-dark mt-2">title：</p>
+                    <p id="depiction" class="text-dark mt-2">depiction：</p>
+                    <p id="hp" class="text-dark mt-2">HP：</p>
+                    <p id="move-speed" class="text-dark">Move Speed：</p>
+                    <p id="armor" class="text-dark">Armor：</p>
+                    <p id="spell-block" class="text-dark">Spell Block：</p>
+                    <p id="attackrange" class="text-dark">Attack Range：</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-danger btn-block" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        // 動態生成英雄 
+        let container = document.querySelector('.container');
+        let countfirst = 1,
+            count = 11,
+            count2 = 143;
+
+        let rowfirst = document.createElement('div');
+        rowfirst.className = 'row mx-1';
+        container.appendChild(rowfirst);
+        for (let i = 0; i < 10; i++) {
+            let divcolfirst = document.createElement('div');
+            divcolfirst.className = 'col-1';
+            divcolfirst.id = countfirst++;
+            rowfirst.appendChild(divcolfirst);
+            let imgfirst = document.createElement('img');
+            imgfirst.className = 'lolpic';
+            imgfirst.src = 0;
+            divcolfirst.appendChild(imgfirst);
+        }
+
+        for (let i = 0; i < 11; i++) {
+            let row = document.createElement('div');
+            row.className = 'row mx-1';
+            container.appendChild(row);
+            for (let i = 0; i < 12; i++) {
+                let divcol = document.createElement('div');
+                divcol.className = 'col-1';
+                divcol.id = count++;
+                row.appendChild(divcol);
+                let img = document.createElement('img');
+                img.className = 'lolpic';
+                img.src = 0;
+                divcol.appendChild(img);
+            }
+        }
+        let rowelse = document.createElement('div');
+        rowelse.className = 'row mx-1';
+        container.appendChild(rowelse);
+        for (let i = 0; i < 10; i++) {
+            let divcolelse = document.createElement('div');
+            divcolelse.className = 'col-1';
+            divcolelse.id = count2++;
+            rowelse.appendChild(divcolelse);
+            let imgelse = document.createElement('img');
+            imgelse.className = 'lolpic';
+            imgelse.src = 0;
+            divcolelse.appendChild(imgelse);
+        }
+
+
+        let url = 'https://ddragon.leagueoflegends.com/cdn/10.22.1/data/zh_TW/champion.json';
+
+        let championsObject = {};
+        let championArray = [];
+        let card = document.querySelectorAll('.lolpic');
+        window.onload = function () {
+            fetch(url)
+                .then(response => response.json())
+                .then(result => {
+                    //整個陣列
+                    championsObject = result.data;
+                    //console.log(championsObject);
+
+                    //個人物陣列
+                    championArray = Object.keys(championsObject);
+                    //console.log(championArray);
+
+                    setpic();
+                })
+        };
+        //設定圖片
+        function setpic() {
+            championArray.forEach((champion, index) => {
+                //let clone = cardlol.content.cloneNode(true);
+                card[index].src =
+                    `https://ddragon.leagueoflegends.com/cdn/img/champion/splash/${champion}_0.jpg`;
+            });
+        }
+
+
+        let lolcard = document.querySelectorAll('.col-1');
+        let btn = document.querySelector('.btn');
+        let btnshow = document.querySelector('.btnshow');
+        let sequence;
+        //初始化 剩餘的步數
+        let steps = 152;
+        //初始化 全部要走的步數
+        let allSteps = 0;
+        //初始化 目前走到哪一格
+        let current = 0;
+        //速率(越大越慢)
+        let speed;
+        // 一開始第一個亮
+        lolcard[0].classList.add('active');
+
+        //按按鈕
+        btn.addEventListener('click', function () {
+            //初始化速率
+            speed = 50;
+            // 取亂數 走格子 +1 因為有可能是0 所以最少要走1步
+            let radom = Math.floor(Math.random() * 152) + 1;
+            // 走得步數 = 剛剛設的亂數
+            steps = radom;
+            //steps = radom + (152);
+            //總步數 = 剛剛的步數
+            allSteps = steps;
+
+            turnAround();
+            //打開show按鈕
+            btnshow.disabled = false;
+        });
+
+        btnshow.addEventListener('click', function () {
+            this.setAttribute('data-toggle', 'modal');
+            this.setAttribute('data-target', '#lolModal');
+            setmodal(current);
+        });
+
+
+        function turnAround() {
+            //清除我現在這格的框
+            lolcard[current].classList.remove('active');
+            //往下一格走
+            current++;
+
+            // 判斷 如果超出格子 就要歸0
+            if (current >= 152) {
+                current = 0;
+            }
+            //加上紅色框
+            lolcard[current].classList.add('active');
+            //剩餘步數要少一格
+            steps--;
+
+            //變速版本
+            if (steps > 0) {
+                setTimeout(turnAround, speed);
+
+                if (steps < Math.floor((allSteps / 3))) {
+                    speed += 1;
+                }
+            } else {
+                console.log(championArray[current]);
+                setmodal(current);
+            }
+
+        }
+
+        function setmodal(current) {
+            let championname = championArray[current];
+            //modal顯示的內容
+            let modal = document.querySelector('#lolModal');
+            modal.querySelector('h5').innerText = `${championname} - ${championsObject[championname].name}`;
+            modal.querySelector('#lolImage').src =
+                `https://ddragon.leagueoflegends.com/cdn/img/champion/splash/${championname}_0.jpg`;
+            modal.querySelector('#loltitle').innerText = `${championsObject[championname].title} - ${championsObject[championname].name}`;
+            modal.querySelector('#depiction').innerText = `英雄介紹：\n${championsObject[championname].blurb}`;
+            modal.querySelector('#hp').innerText = `血量：${championsObject[championname].stats.hp}`;
+            modal.querySelector('#move-speed').innerText =
+            `移動速度：${championsObject[championname].stats.movespeed}`;
+            modal.querySelector('#armor').innerText = `物理防禦：${championsObject[championname].stats.armor}`;
+            modal.querySelector('#spell-block').innerText =
+                `魔法防禦：${championsObject[championname].stats.spellblock}`;
+            modal.querySelector('#attackrange').innerText =
+                `攻擊範圍：${championsObject[championname].stats.attackrange}`;
+            //console.log(modal);
+        }
+    </script>
+
+
+
+
+
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous">
+    </script>
+
+
+</body>
+
+</html>
