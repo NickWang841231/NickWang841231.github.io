@@ -1,0 +1,400 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <style>
+        
+        body{
+            background-image:url(back-ground-img.jpg);
+        }
+
+        table{
+            margin-top: 75px;
+        }
+
+        .year-title {
+            text-align: center;
+        }
+
+        .changeMonth {
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .last-next{
+            font-family:Comic Sans MS;
+            width: 75px;
+            height: 75px;
+        }
+
+        .year-title{
+            font-family:Comic Sans MS;
+        }
+
+        .tr_week{
+            font-family:Comic Sans MS;
+            background-color: rgb(209, 235, 232);
+        }
+
+        ul{
+            padding-left: 0;
+        }
+
+        .table td, .table th{
+            border-top: none;
+        }
+
+        td {
+           height: 100px;
+           width: 100px;
+           background-color: #fff;
+        }
+        .td_num{
+            font-family:Comic Sans MS;
+            border: 1px solid rgb(209, 235, 232);
+        }
+        td:hover{
+            background-color: rgb(209, 235, 232);
+        }
+
+        li {
+            list-style: none;
+            border-radius: 25px;
+            margin-top: 5px;
+            background-color: gainsboro;
+        }
+    </style>
+    <title>行事曆</title>
+</head>
+
+<body>
+
+    <div class="changeMonth container mt-3">
+        <button class="last-next btn btn-outline-info" onclick="PreMonth()">Last</button>
+        <h1 class="year-title mt-3" id="month">00月</h1>
+        <h1 class="year-title mt-3" id="year">0000年</h1>
+
+
+        <button class="last-next btn btn-outline-info" onclick="NextMonth()">Next</button>
+    </div>
+
+    <table class="table text-center container">
+        <thead>
+            <tr class="tr_week">
+                <th>SUN</th>
+                <th>MON</th>
+                <th>TUE</th>
+                <th>WED</th>
+                <th>THU</th>
+                <th>FRI</th>
+                <th>SAT</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- 日期動態渲染 -->
+        </tbody>
+    </table>
+
+    <!-- 新增行程 Modal -->
+    <div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">新增行程</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>新增日期</p>
+                    <input type="text" id="date" readonly>
+                    <br>
+                    <br>
+                    <p>新增內容</p>
+                    <input type="text" id="todo-item">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">關閉</button>
+                    <button type="button" class="btn btn-outline-success" onclick="addTodoItem()">儲存</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 修改行程 Modal -->
+    <div class="modal fade" id="modifyModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">修改行程</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>修改日期</p>
+                    <input type="text" id="modify-date" readonly>
+                    <br>
+                    <br>
+                    <p>修改內容</p>
+                    <input type="text" id="modify-todo-item">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-danger" onclick="deleteTodoItem()">刪除</button>
+                    <button type="button" class="btn btn-outline-warning" onclick="editTodoItem()">修改</button>
+                    <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">關閉</button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        //今天
+        let today = new Date();
+        //年、月、日
+        let year = today.getFullYear();
+        let month = today.getMonth();
+        let date = today.getDate();
+
+        //目前修改的行程索引
+        let currentIndex;
+
+        function Init() {
+            let tbody = document.querySelector('tbody');
+            tbody.innerHTML = '';
+
+            //document.querySelector('#year-month').innerText = `${year} - ${month+1}`
+            document.querySelector('#year').innerText = `${year}`
+            document.querySelector('#month').innerText = `${changemonth(month)}`
+            
+
+            //第一天禮拜幾
+            let firstDay = new Date(year, month, 1).getDay();
+            //這個月有幾天
+            let dayOfMonth = new Date(year, month + 1, 0).getDate();
+
+            //算出共有幾行
+            let rows = Math.ceil((dayOfMonth + firstDay) / 7);
+
+            let day = 1 //每個月第一天 一定是1號
+
+            //處理有幾行
+            for (let row = 0; row < rows; row++) {
+                let tr = document.createElement('tr');
+                //總共有七天 所以有7個column
+                for (let column = 0; column < 7; column++) {
+                    let td = document.createElement('td');
+                    td.className = 'td_num';
+                    if (row == 0 && column < firstDay) {
+                        //上個月
+                        //td.innerText = '上個月';
+                    }
+                    //不是第一行的
+                    else {
+                        if (day <= dayOfMonth) {
+                            //這個月
+                            td.innerText = day;
+                            //null代表沒有行程
+                            if (localStorage.getItem(`${year}-${month+1}-${day}`) != null) {
+                                //今天有行程
+                                let todolist = JSON.parse(localStorage.getItem(`${year}-${month+1}-${day}`));
+
+                                let ul = document.createElement('ul');
+
+                                todolist.forEach((item, index) => {
+                                    let li = document.createElement('li');
+                                    li.innerText = item.title;
+
+                                    //修改MODAL
+                                    li.addEventListener('click', function (event) {
+                                        $('#modifyModal').modal('show');
+                                        currentIndex = index;
+
+                                        //要修改的日期
+                                        document.querySelector('#modify-date').value =
+                                            `${year}-${month+1}-${event.target.offsetParent.childNodes[0].data}`;
+
+                                        //要修改的行程
+                                        document.querySelector('#modify-todo-item').value = item.title;
+
+
+                                        //停止冒泡事件
+                                        event.stopPropagation();
+                                    })
+
+                                    ul.appendChild(li);
+                                });
+                                td.appendChild(ul);
+                            }
+
+
+                            //這個月按到時要新增事情
+                            td.addEventListener('click', function (event) {
+                                //event 點到的是誰
+                                console.log(event);
+                                let target;
+                                if (event.target.localName == 'td') {
+                                    target = event.target;
+                                    //有可能td裡面不只有一個元素
+                                }
+                                $('#addModal').modal('show');
+
+                                document.querySelector('#date').value =
+                                    `${year}-${month+1}-${target.childNodes[0].data}`;
+                            })
+                        } else {
+                            //跑到下個月
+                            //td.innerText = '下個月';
+                        }
+                        day++;
+                    }
+                    tr.appendChild(td);
+                }
+                tbody.appendChild(tr);
+            }
+        }
+
+        Init();
+
+        //下個月
+        function NextMonth() {
+            month++;
+            if (month > 11) {
+                month = 0;
+                year++;
+            }
+            Init();
+        }
+
+        //上個月
+        function PreMonth() {
+            month--;
+            if (month < 0) {
+                month = 11;
+                year--;
+            }
+            Init();
+        }
+
+        //新增行程
+        function addTodoItem() {
+            //選到日期
+            let date = document.querySelector('#date').value;
+            //選到要做的事情
+            let todoItem = document.querySelector('#todo-item').value;
+
+            let todoObj = {
+                title: todoItem
+            }
+
+            //宣告一個要做的清單
+            let todoList = [];
+
+            if (localStorage.getItem(date) == null) {
+                //如果沒有行程
+                //將行程輸入進去
+                todoList.push(todoObj);
+            } else {
+                //如果已經有行程
+                //先把原本的行程加進來
+                //再將新的行程加進去
+                todoList = JSON.parse(localStorage.getItem(date));
+                todoList.push(todoObj);
+            }
+
+            //存到localStorage 內 並轉型態
+            localStorage.setItem(date, JSON.stringify(todoList));
+
+            $('#addModal').modal('hide');
+
+            Init();
+        }
+
+
+        //修改行程
+        function editTodoItem() {
+            let date = document.querySelector('#modify-date').value;
+            let todoItem = document.querySelector('#modify-todo-item').value;
+
+            let todolist = JSON.parse(localStorage.getItem(date));
+
+            //修改的那一個
+            todolist[currentIndex] = {
+                title: todoItem
+            };
+
+            localStorage.setItem(date, JSON.stringify(todolist));
+
+            $('#modifyModal').modal('hide');
+
+            Init();
+        }
+
+        //刪除行程
+        function deleteTodoItem() {
+            let date = document.querySelector('#modify-date').value;
+
+            let todolist = JSON.parse(localStorage.getItem(date));
+            //從一個陣列裡面拿掉一個元素
+            todolist.splice(currentIndex, 1);
+
+            localStorage.setItem(date, JSON.stringify(todolist));
+
+            $('#modifyModal').modal('hide');
+
+            Init();
+        }
+
+        //換成英文月
+        function changemonth(chmon){
+            let month = new Array(12);
+            month[0] = 'January';
+            month[1] = 'February';
+            month[2] = 'March';
+            month[3] = 'April';
+            month[4] = 'May';
+            month[5] = 'June';
+            month[6] = 'July';
+            month[7] = 'August';
+            month[8] = 'September';
+            month[9] = 'October';        
+            month[10] = 'November';        
+            month[11] = 'December';
+            return month[chmon];        
+        }
+        
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous">
+    </script>
+
+
+</body>
+
+</html>
