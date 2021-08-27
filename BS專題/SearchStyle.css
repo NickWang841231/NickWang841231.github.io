@@ -1,0 +1,30 @@
+.search_pic {
+    width: 100%;
+}
+
+.card-title a {
+    text-decoration: none;
+    color: #000;
+}
+
+.card-title a :hover {
+    text-decoration: underline;
+}
+
+.search_card_title,
+.search_card_owner,
+.search_card_tag{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+}
+.search_card_tag a{
+    text-decoration: none;
+    color: #000;
+}
+
+.alert{
+    text-align: center;
+}
