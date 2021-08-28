@@ -1,3 +1,36 @@
-.member_pic{
+.member_pic,
+.member_own_pic {
     width: 100%;
+}
+
+.member_inf {
+    padding: 5px;
+}
+
+.card-title a {
+    text-decoration: none;
+    color: #000;
+}
+
+.card-title a :hover {
+    text-decoration: underline;
+}
+
+.member_card_title {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+}
+
+.table {
+    width: 100%;
+    table-layout: fixed;
+}
+
+.member_evaluation {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
