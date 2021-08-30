@@ -284,20 +284,20 @@
               </select>
             </div>
           </div>
-          <!--預算上限-->
-          <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne"
-            data-bs-parent="#accordionFlushExample">
-            <div class="accordion-body">
-              <div class="alert alert-warning " role="alert">預算上限</div>
-              <label for="customRange2" class="form-label">顯示金額</label>
-              <input type="range" class="form-range" min="0" max="12" id="customRange2">
-            </div>
-          </div>
           <!--最低預算-->
           <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne"
             data-bs-parent="#accordionFlushExample">
             <div class="accordion-body">
               <div class="alert alert-warning " role="alert">最低預算</div>
+              <label for="customRange2" class="form-label">顯示金額</label>
+              <input type="range" class="form-range" min="0" max="12" id="customRange2">
+            </div>
+          </div>
+          <!--預算上限-->
+          <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne"
+            data-bs-parent="#accordionFlushExample">
+            <div class="accordion-body">
+              <div class="alert alert-warning " role="alert">預算上限</div>
               <label for="customRange2" class="form-label">顯示金額</label>
               <input type="range" class="form-range" min="0" max="12" id="customRange2">
             </div>
@@ -426,23 +426,7 @@
         </select>
       </div>
       <!--金額-->
-      <div class="col-lg-3">
-        <select class="select_active form-select" aria-label="choose_activity">
-          <option selected class="d-none">預算上限</option>
-          <option value="1">NT$200</option>
-          <option value="2">NT$300</option>
-          <option value="3">NT$400</option>
-          <option value="4">NT$500</option>
-          <option value="5">NT$700</option>
-          <option value="6">NT$1000</option>
-          <option value="7">NT$1500</option>
-          <option value="8">NT$2000</option>
-          <option value="9">NT$3000</option>
-          <option value="10">NT$4000</option>
-          <option value="11">NT$5000</option>
-          <option value="12">NT$7000</option>
-        </select>
-      </div>
+
       <div class="col-lg-3">
         <select class="select_active form-select" aria-label="choose_activity">
           <option selected class="d-none">最低預算</option>
@@ -460,14 +444,34 @@
           <option value="12">NT$7000</option>
         </select>
       </div>
+
+      <div class="col-lg-3">
+        <select class="select_active form-select" aria-label="choose_activity">
+          <option selected class="d-none">預算上限</option>
+          <option value="1">NT$200</option>
+          <option value="2">NT$300</option>
+          <option value="3">NT$400</option>
+          <option value="4">NT$500</option>
+          <option value="5">NT$700</option>
+          <option value="6">NT$1000</option>
+          <option value="7">NT$1500</option>
+          <option value="8">NT$2000</option>
+          <option value="9">NT$3000</option>
+          <option value="10">NT$4000</option>
+          <option value="11">NT$5000</option>
+          <option value="12">NT$7000</option>
+        </select>
+      </div>
+      
     </div>
   </div>
 
 
   <div class="container mt-4">
-    <div class="row mt-3">
+
+    <div class="row">
       <div class="col-sm-12 col-md-12 col-lg-6 my-auto">
-        <div class="card search_card">
+        <div class="card search_card mb-3">
           <div class="row my-auto g-0">
             <div class="col-md-4 mt-auto my-auto">
               <img src="https://picsum.photos/300/200/?random=1" class="search_pic img-fluid rounded-start" alt="...">
@@ -513,7 +517,7 @@
       </div>
 
       <div class="col-sm-12 col-md-12 col-lg-6 my-auto">
-        <div class="card search_card">
+        <div class="card search_card mb-3">
           <div class="row my-auto g-0">
             <div class="col-md-4 mt-auto my-auto">
               <img src="https://picsum.photos/300/200/?random=2" class="search_pic img-fluid rounded-start" alt="...">
@@ -559,9 +563,9 @@
       </div>
     </div>
 
-    <div class="row mt-3">
+    <div class="row">
       <div class="col-sm-12 col-md-12 col-lg-6 my-auto">
-        <div class="card search_card">
+        <div class="card search_card mb-3">
           <div class="row my-auto g-0">
             <div class="col-md-4 mt-auto my-auto">
               <img src="https://picsum.photos/300/200/?random=1" class="search_pic img-fluid rounded-start" alt="...">
@@ -607,7 +611,7 @@
       </div>
 
       <div class="col-sm-12 col-md-12 col-lg-6 my-auto">
-        <div class="card search_card">
+        <div class="card search_card mb-3">
           <div class="row my-auto g-0">
             <div class="col-md-4 mt-auto my-auto">
               <img src="https://picsum.photos/300/200/?random=2" class="search_pic img-fluid rounded-start" alt="...">
@@ -653,9 +657,9 @@
       </div>
     </div>
 
-    <div class="row mt-3">
+    <div class="row">
       <div class="col-sm-12 col-md-12 col-lg-6 my-auto">
-        <div class="card search_card">
+        <div class="card search_card mb-3">
           <div class="row my-auto g-0">
             <div class="col-md-4 mt-auto my-auto">
               <img src="https://picsum.photos/300/200/?random=1" class="search_pic img-fluid rounded-start" alt="...">
@@ -701,7 +705,7 @@
       </div>
 
       <div class="col-sm-12 col-md-12 col-lg-6 my-auto">
-        <div class="card search_card">
+        <div class="card search_card mb-3">
           <div class="row my-auto g-0">
             <div class="col-md-4 mt-auto my-auto">
               <img src="https://picsum.photos/300/200/?random=2" class="search_pic img-fluid rounded-start" alt="...">
@@ -747,9 +751,9 @@
       </div>
     </div>
 
-    <div class="row mt-3">
+    <div class="row">
       <div class="col-sm-12 col-md-12 col-lg-6 my-auto">
-        <div class="card search_card">
+        <div class="card search_card mb-3">
           <div class="row my-auto g-0">
             <div class="col-md-4 mt-auto my-auto">
               <img src="https://picsum.photos/300/200/?random=1" class="search_pic img-fluid rounded-start" alt="...">
@@ -795,7 +799,7 @@
       </div>
 
       <div class="col-sm-12 col-md-12 col-lg-6 my-auto">
-        <div class="card search_card">
+        <div class="card search_card mb-3">
           <div class="row my-auto g-0">
             <div class="col-md-4 mt-auto my-auto">
               <img src="https://picsum.photos/300/200/?random=2" class="search_pic img-fluid rounded-start" alt="...">
@@ -841,9 +845,9 @@
       </div>
     </div>
 
-    <div class="row mt-3">
+    <div class="row">
       <div class="col-sm-12 col-md-12 col-lg-6 my-auto">
-        <div class="card search_card">
+        <div class="card search_card mb-3">
           <div class="row my-auto g-0">
             <div class="col-md-4 mt-auto my-auto">
               <img src="https://picsum.photos/300/200/?random=1" class="search_pic img-fluid rounded-start" alt="...">
@@ -889,7 +893,7 @@
       </div>
 
       <div class="col-sm-12 col-md-12 col-lg-6 my-auto">
-        <div class="card search_card">
+        <div class="card search_card mb-3">
           <div class="row my-auto g-0">
             <div class="col-md-4 mt-auto my-auto">
               <img src="https://picsum.photos/300/200/?random=2" class="search_pic img-fluid rounded-start" alt="...">
@@ -935,9 +939,9 @@
       </div>
     </div>
 
-    <div class="row mt-3">
+    <div class="row">
       <div class="col-sm-12 col-md-12 col-lg-6 my-auto">
-        <div class="card search_card">
+        <div class="card search_card mb-3">
           <div class="row my-auto g-0">
             <div class="col-md-4 mt-auto my-auto">
               <img src="https://picsum.photos/300/200/?random=1" class="search_pic img-fluid rounded-start" alt="...">
@@ -983,7 +987,7 @@
       </div>
 
       <div class="col-sm-12 col-md-12 col-lg-6 my-auto">
-        <div class="card search_card">
+        <div class="card search_card mb-3">
           <div class="row my-auto g-0">
             <div class="col-md-4 mt-auto my-auto">
               <img src="https://picsum.photos/300/200/?random=2" class="search_pic img-fluid rounded-start" alt="...">
@@ -1029,9 +1033,9 @@
       </div>
     </div>
 
-    <div class="row mt-3">
+    <div class="row">
       <div class="col-sm-12 col-md-12 col-lg-6 my-auto">
-        <div class="card search_card">
+        <div class="card search_card mb-3">
           <div class="row my-auto g-0">
             <div class="col-md-4 mt-auto my-auto">
               <img src="https://picsum.photos/300/200/?random=1" class="search_pic img-fluid rounded-start" alt="...">
@@ -1077,7 +1081,7 @@
       </div>
 
       <div class="col-sm-12 col-md-12 col-lg-6 my-auto">
-        <div class="card search_card">
+        <div class="card search_card mb-3">
           <div class="row my-auto g-0">
             <div class="col-md-4 mt-auto my-auto">
               <img src="https://picsum.photos/300/200/?random=2" class="search_pic img-fluid rounded-start" alt="...">
@@ -1123,9 +1127,9 @@
       </div>
     </div>
 
-    <div class="row mt-3">
+    <div class="row">
       <div class="col-sm-12 col-md-12 col-lg-6 my-auto">
-        <div class="card search_card">
+        <div class="card search_card mb-3">
           <div class="row my-auto g-0">
             <div class="col-md-4 mt-auto my-auto">
               <img src="https://picsum.photos/300/200/?random=1" class="search_pic img-fluid rounded-start" alt="...">
@@ -1171,7 +1175,7 @@
       </div>
 
       <div class="col-sm-12 col-md-12 col-lg-6 my-auto">
-        <div class="card search_card">
+        <div class="card search_card mb-3">
           <div class="row my-auto g-0">
             <div class="col-md-4 mt-auto my-auto">
               <img src="https://picsum.photos/300/200/?random=2" class="search_pic img-fluid rounded-start" alt="...">
@@ -1217,9 +1221,9 @@
       </div>
     </div>
 
-    <div class="row mt-3">
+    <div class="row">
       <div class="col-sm-12 col-md-12 col-lg-6 my-auto">
-        <div class="card search_card">
+        <div class="card search_card mb-3">
           <div class="row my-auto g-0">
             <div class="col-md-4 mt-auto my-auto">
               <img src="https://picsum.photos/300/200/?random=1" class="search_pic img-fluid rounded-start" alt="...">
@@ -1265,7 +1269,7 @@
       </div>
 
       <div class="col-sm-12 col-md-12 col-lg-6 my-auto">
-        <div class="card search_card">
+        <div class="card search_card mb-3">
           <div class="row my-auto g-0">
             <div class="col-md-4 mt-auto my-auto">
               <img src="https://picsum.photos/300/200/?random=2" class="search_pic img-fluid rounded-start" alt="...">
@@ -1311,9 +1315,9 @@
       </div>
     </div>
 
-    <div class="row mt-3">
+    <div class="row">
       <div class="col-sm-12 col-md-12 col-lg-6 my-auto">
-        <div class="card search_card">
+        <div class="card search_card mb-3">
           <div class="row my-auto g-0">
             <div class="col-md-4 mt-auto my-auto">
               <img src="https://picsum.photos/300/200/?random=1" class="search_pic img-fluid rounded-start" alt="...">
@@ -1359,7 +1363,7 @@
       </div>
 
       <div class="col-sm-12 col-md-12 col-lg-6 my-auto">
-        <div class="card search_card">
+        <div class="card search_card mb-3">
           <div class="row my-auto g-0">
             <div class="col-md-4 mt-auto my-auto">
               <img src="https://picsum.photos/300/200/?random=2" class="search_pic img-fluid rounded-start" alt="...">
@@ -1405,9 +1409,9 @@
       </div>
     </div>
 
-    <div class="row mt-3">
+    <div class="row">
       <div class="col-sm-12 col-md-12 col-lg-6 my-auto">
-        <div class="card search_card">
+        <div class="card search_card mb-3">
           <div class="row my-auto g-0">
             <div class="col-md-4 mt-auto my-auto">
               <img src="https://picsum.photos/300/200/?random=1" class="search_pic img-fluid rounded-start" alt="...">
@@ -1453,7 +1457,7 @@
       </div>
 
       <div class="col-sm-12 col-md-12 col-lg-6 my-auto">
-        <div class="card search_card">
+        <div class="card search_card mb-3">
           <div class="row my-auto g-0">
             <div class="col-md-4 mt-auto my-auto">
               <img src="https://picsum.photos/300/200/?random=2" class="search_pic img-fluid rounded-start" alt="...">
@@ -1499,9 +1503,9 @@
       </div>
     </div>
 
-    <div class="row mt-3">
+    <div class="row">
       <div class="col-sm-12 col-md-12 col-lg-6 my-auto">
-        <div class="card search_card">
+        <div class="card search_card mb-3">
           <div class="row my-auto g-0">
             <div class="col-md-4 mt-auto my-auto">
               <img src="https://picsum.photos/300/200/?random=1" class="search_pic img-fluid rounded-start" alt="...">
@@ -1547,7 +1551,7 @@
       </div>
 
       <div class="col-sm-12 col-md-12 col-lg-6 my-auto">
-        <div class="card search_card">
+        <div class="card search_card mb-3">
           <div class="row my-auto g-0">
             <div class="col-md-4 mt-auto my-auto">
               <img src="https://picsum.photos/300/200/?random=2" class="search_pic img-fluid rounded-start" alt="...">
@@ -1593,9 +1597,9 @@
       </div>
     </div>
 
-    <div class="row mt-3">
+    <div class="row">
       <div class="col-sm-12 col-md-12 col-lg-6 my-auto">
-        <div class="card search_card">
+        <div class="card search_card mb-3">
           <div class="row my-auto g-0">
             <div class="col-md-4 mt-auto my-auto">
               <img src="https://picsum.photos/300/200/?random=1" class="search_pic img-fluid rounded-start" alt="...">
@@ -1641,7 +1645,7 @@
       </div>
 
       <div class="col-sm-12 col-md-12 col-lg-6 my-auto">
-        <div class="card search_card">
+        <div class="card search_card mb-3">
           <div class="row my-auto g-0">
             <div class="col-md-4 mt-auto my-auto">
               <img src="https://picsum.photos/300/200/?random=2" class="search_pic img-fluid rounded-start" alt="...">
@@ -1687,9 +1691,9 @@
       </div>
     </div>
 
-    <div class="row mt-3">
+    <div class="row">
       <div class="col-sm-12 col-md-12 col-lg-6 my-auto">
-        <div class="card search_card">
+        <div class="card search_card mb-3">
           <div class="row my-auto g-0">
             <div class="col-md-4 mt-auto my-auto">
               <img src="https://picsum.photos/300/200/?random=1" class="search_pic img-fluid rounded-start" alt="...">
@@ -1735,7 +1739,7 @@
       </div>
 
       <div class="col-sm-12 col-md-12 col-lg-6 my-auto">
-        <div class="card search_card">
+        <div class="card search_card mb-3">
           <div class="row my-auto g-0">
             <div class="col-md-4 mt-auto my-auto">
               <img src="https://picsum.photos/300/200/?random=2" class="search_pic img-fluid rounded-start" alt="...">
@@ -1781,9 +1785,9 @@
       </div>
     </div>
 
-    <div class="row mt-3">
+    <div class="row">
       <div class="col-sm-12 col-md-12 col-lg-6 my-auto">
-        <div class="card search_card">
+        <div class="card search_card mb-3">
           <div class="row my-auto g-0">
             <div class="col-md-4 mt-auto my-auto">
               <img src="https://picsum.photos/300/200/?random=1" class="search_pic img-fluid rounded-start" alt="...">
@@ -1829,7 +1833,7 @@
       </div>
 
       <div class="col-sm-12 col-md-12 col-lg-6 my-auto">
-        <div class="card search_card">
+        <div class="card search_card mb-3">
           <div class="row my-auto g-0">
             <div class="col-md-4 mt-auto my-auto">
               <img src="https://picsum.photos/300/200/?random=2" class="search_pic img-fluid rounded-start" alt="...">
@@ -1875,9 +1879,9 @@
       </div>
     </div>
 
-    <div class="row mt-3">
+    <div class="row">
       <div class="col-sm-12 col-md-12 col-lg-6 my-auto">
-        <div class="card search_card">
+        <div class="card search_card mb-3">
           <div class="row my-auto g-0">
             <div class="col-md-4 mt-auto my-auto">
               <img src="https://picsum.photos/300/200/?random=1" class="search_pic img-fluid rounded-start" alt="...">
@@ -1923,7 +1927,7 @@
       </div>
 
       <div class="col-sm-12 col-md-12 col-lg-6 my-auto">
-        <div class="card search_card">
+        <div class="card search_card mb-3">
           <div class="row my-auto g-0">
             <div class="col-md-4 mt-auto my-auto">
               <img src="https://picsum.photos/300/200/?random=2" class="search_pic img-fluid rounded-start" alt="...">
@@ -1969,9 +1973,9 @@
       </div>
     </div>
 
-    <div class="row mt-3">
+    <div class="row">
       <div class="col-sm-12 col-md-12 col-lg-6 my-auto">
-        <div class="card search_card">
+        <div class="card search_card mb-3">
           <div class="row my-auto g-0">
             <div class="col-md-4 mt-auto my-auto">
               <img src="https://picsum.photos/300/200/?random=1" class="search_pic img-fluid rounded-start" alt="...">
@@ -2017,7 +2021,7 @@
       </div>
 
       <div class="col-sm-12 col-md-12 col-lg-6 my-auto">
-        <div class="card search_card">
+        <div class="card search_card mb-3">
           <div class="row my-auto g-0">
             <div class="col-md-4 mt-auto my-auto">
               <img src="https://picsum.photos/300/200/?random=2" class="search_pic img-fluid rounded-start" alt="...">
@@ -2063,9 +2067,9 @@
       </div>
     </div>
 
-    <div class="row mt-3">
+    <div class="row">
       <div class="col-sm-12 col-md-12 col-lg-6 my-auto">
-        <div class="card search_card">
+        <div class="card search_card mb-3">
           <div class="row my-auto g-0">
             <div class="col-md-4 mt-auto my-auto">
               <img src="https://picsum.photos/300/200/?random=1" class="search_pic img-fluid rounded-start" alt="...">
@@ -2111,7 +2115,7 @@
       </div>
 
       <div class="col-sm-12 col-md-12 col-lg-6 my-auto">
-        <div class="card search_card">
+        <div class="card search_card mb-3">
           <div class="row my-auto g-0">
             <div class="col-md-4 mt-auto my-auto">
               <img src="https://picsum.photos/300/200/?random=2" class="search_pic img-fluid rounded-start" alt="...">
@@ -2157,9 +2161,9 @@
       </div>
     </div>
 
-    <div class="row mt-3">
+    <div class="row">
       <div class="col-sm-12 col-md-12 col-lg-6 my-auto">
-        <div class="card search_card">
+        <div class="card search_card mb-3">
           <div class="row my-auto g-0">
             <div class="col-md-4 mt-auto my-auto">
               <img src="https://picsum.photos/300/200/?random=1" class="search_pic img-fluid rounded-start" alt="...">
@@ -2205,7 +2209,7 @@
       </div>
 
       <div class="col-sm-12 col-md-12 col-lg-6 my-auto">
-        <div class="card search_card">
+        <div class="card search_card mb-3">
           <div class="row my-auto g-0">
             <div class="col-md-4 mt-auto my-auto">
               <img src="https://picsum.photos/300/200/?random=2" class="search_pic img-fluid rounded-start" alt="...">
@@ -2251,9 +2255,9 @@
       </div>
     </div>
 
-    <div class="row mt-3">
+    <div class="row">
       <div class="col-sm-12 col-md-12 col-lg-6 my-auto">
-        <div class="card search_card">
+        <div class="card search_card mb-3">
           <div class="row my-auto g-0">
             <div class="col-md-4 mt-auto my-auto">
               <img src="https://picsum.photos/300/200/?random=1" class="search_pic img-fluid rounded-start" alt="...">
@@ -2299,7 +2303,7 @@
       </div>
 
       <div class="col-sm-12 col-md-12 col-lg-6 my-auto">
-        <div class="card search_card">
+        <div class="card search_card mb-3">
           <div class="row my-auto g-0">
             <div class="col-md-4 mt-auto my-auto">
               <img src="https://picsum.photos/300/200/?random=2" class="search_pic img-fluid rounded-start" alt="...">
