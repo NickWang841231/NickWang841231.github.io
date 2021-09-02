@@ -105,24 +105,24 @@ img {
 
 
 .memberbuyer_pending_btn .btn{
-    background-color: #D9831A;
-    color: #fff;
-}
-
-.memberbuyer_pending_btn .btn:hover{
-    background-color: #be7418;
-}
-
-.memberbuyer_pending_btn .btn:nth-child(2){
     background-color: #fff;
     border: 1px solid #cccccc;
     color: #000;
 }
 
-.memberbuyer_pending_btn .btn:nth-child(2):hover{
+.memberbuyer_pending_btn .btn:hover{
     background-color: #CCCCCC;
     border: 1px solid #cccccc;
     color: #fff;
+}
+
+.memberbuyer_pending_btn .btn:nth-child(2){
+    background-color: #D9831A;
+    color: #fff;
+}
+
+.memberbuyer_pending_btn .btn:nth-child(2):hover{
+    background-color: #be7418;
 }
 
 
