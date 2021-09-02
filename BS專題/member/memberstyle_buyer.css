@@ -15,15 +15,6 @@ img {
     border: 3px solid #049DD9;
 }
 
-.myplace_space_card_distinct{
-    padding: 10px 30px;
-    background-color: rgba(0, 0, 0, 0.2);
-    color: #fff;
-    position: absolute;
-    top: 0;
-    left: 10px;
-}
-
 .member_verifcation_item {
     background-color: #F5F5F5;
     padding: 10px;
@@ -97,17 +88,26 @@ img {
     margin: auto;
 }
 
-.reviewsfromhost_review_card_txt a{
-    text-decoration: none;
+.reviewsfromhost_review_card_txt a:nth-child(1){
     color: #000;
 }
 
-.reviewsfromhost_review_card_txt a:hover{
+.reviewsfromhost_review_card_txt a:nth-child(1):hover{
     color: #CCCCCC;
+}
+
+.reviewsfromhost_review_card_txt a{
+    text-decoration: none;
+    color: #CCCCCC;
+}
+
+.reviewsfromhost_review_card_txt a:hover{
+    color:#838282;
 }
 
 .reviewsfromhost_review_card_txt_date {
     margin: 0px;
+    color: #CCCCCC;
 }
 
 .reviewsfromhost_review_card_txt_place{
