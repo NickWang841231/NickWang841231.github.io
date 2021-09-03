@@ -159,6 +159,11 @@ img {
     color: #fff;
 }
 
+textarea {
+    height: 200px;
+    resize: none;
+}
+
 
 @media (max-width:767px) {
   .memberbuyer_completed_num_ordernum{
