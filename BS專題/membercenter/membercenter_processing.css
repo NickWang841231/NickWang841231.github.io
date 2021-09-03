@@ -8,6 +8,14 @@ img {
   max-width: 1140px;
 }
 
+.memberbuyer_container{
+  margin-top: -50px;
+}
+
+.btn:focus{
+  box-shadow: none;
+}
+
 
 .memberbuyer_state {
   list-style: none;
