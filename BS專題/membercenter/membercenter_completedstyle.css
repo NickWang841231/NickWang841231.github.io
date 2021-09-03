@@ -8,6 +8,10 @@ img {
     max-width: 1140px;
 }
 
+.btn:focus{
+    box-shadow: none;
+}
+
 .memberbuyer_container{
     margin-top: -50px;
 }
