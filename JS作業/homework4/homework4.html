@@ -117,10 +117,9 @@
     </div>
 
 
-    <script type='module'>
-        import { $g } from '../homework4/Modules/helpers.js';
-        let row = $g('.row');
-        let card = $g('#cardlol');
+    <script>
+        let row = document.querySelector('.row');
+        let card = document.querySelector('#cardlol');
 
         let url = 'https://ddragon.leagueoflegends.com/cdn/10.22.1/data/zh_TW/champion.json';
 
@@ -157,7 +156,6 @@
                         this.setAttribute('data-toggle', 'modal');
                         this.setAttribute('data-target', '#lolModal');
                         setmodal(index);
-                        //alert(`hi${index}`);
                     }
                 });
                 row.append(clone);
