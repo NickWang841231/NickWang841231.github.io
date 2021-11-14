@@ -1,6 +1,10 @@
 * {
   margin: 0;
   padding: 0;
+  list-style: none;
+}
+.header{
+  display: none;
 }
 
 .slide {
@@ -272,6 +276,74 @@ footer {
 
 
 @media screen and (min-width:992px) {
+  .header{
+    display: block;
+    width: 100%;
+    position: fixed; 
+  }
+  .header_tool {
+    width: 100%;
+    background-color:rgb(0, 20, 45);
+    display: flex;
+    padding: 0 30px;
+    align-items: center;
+    box-sizing: border-box;
+  }
+  .tool ul{
+    display: flex;
+    margin-left: 1500px;
+  }
+  .tool li{
+    padding: 5px 20px 5px 0;
+    color: white;
+  }
+  .tool a{
+    color: white;
+    text-decoration: none;
+  }
+  .tool a:hover{
+    color:rgb(25, 93, 182) ;
+  }
+  .header_about{
+    width: 100%;
+    background-color: #fff;
+    border: 1px solid rgb(172, 174, 179);
+    display: flex;
+    padding: 0 30px;
+    align-items: center;
+    box-sizing: border-box;
+  }
+  .logo img{
+    width: 165px;
+    margin:30px 50px 30px 150px;
+  }
+  .navigation ul{
+    display: flex;
+  }
+  .navigation li{
+    font-size: 15px;
+  }
+  .navigation a{
+    text-decoration: none;
+    color: black;
+    padding: 20px;
+  }
+  .navigation a:hover{
+    color: blue;
+    border-bottom: 2px solid blue;
+  }
+  .navigation :nth-of-type(8){
+    background-color:rgb(0, 97, 255);
+    border-radius: 50px;
+    font-size: 20px;
+    margin-left: 460px;
+  }
+  .navigation :nth-of-type(8) a:hover{
+    color: white;
+  }
+  .slide{
+    padding-top: 124px;
+  }
   .slide_text h1 {
     color: #fff;
     font-size: 40px;
